@@ -1,0 +1,71 @@
+.mindtek-hero {
+	background: linear-gradient(135deg, #0A6ED1 0%, #4A9FE8 100%);
+	border-radius: 0.75rem;
+	padding: 3rem 1.5rem;
+}
+
+.mindtek-hero .sapMTitle,
+.mindtek-hero .sapMText {
+	color: #ffffff;
+}
+
+.mindtek-content {
+	width: 100%;
+	max-width: 68rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
+}
+
+.mindtek-tile {
+	height: 100%;
+	width: 100%;
+	min-height: 9rem;
+	padding: 0.5rem;
+	box-sizing: border-box;
+}
+
+.mindtek-client-logo {
+	width: 8rem;
+	height: 4rem;
+	object-fit: contain;
+}
+
+/* Make the tile content fill the whole tile so the icon/title/text centre vertically */
+.sapFGLI .sapFGLIWrapper,
+.sapFGLI .sapMLIBContent {
+	height: 100%;
+}
+
+/* Portfolio tiles are square */
+.sapFGLI {
+	aspect-ratio: 1 / 1;
+}
+
+.mindtek-shellbar {
+	background: #ffffff !important;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+@media (max-width: 1023px) {
+	.mindtek-shellbar .mindtek-nav-btn {
+		display: none !important;
+	}
+}
+
+.mindtek-cards {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -0.5rem;
+}
+
+.mindtek-cards > .sapMFlexItem {
+	flex: 1 1 30% !important;
+	min-width: 16rem !important;
+	margin: 0.5rem;
+	box-sizing: border-box;
+}
+
+.mindtek-card {
+	height: 100%;
+}

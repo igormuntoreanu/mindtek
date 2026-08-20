@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<Panel id="footerPanel" class="sapUiResponsiveMargin" width="auto">
+		<VBox id="footerContent" class="sapUiTinyMargin" alignItems="Center">
+			<HBox id="footerSocial" class="sapUiTinyMarginTop" justifyContent="Center">
+				<Button id="linkedinButton" icon="assets/icons/linkedin.png" type="Transparent" press=".onOpenSocialLink" tooltip="LinkedIn" class="sapUiTinyMarginEnd">
+					<customData><core:CustomData key="url" value="{i18n>linkedinUrl}" /></customData>
+				</Button>
+				<Button id="youtubeButton" icon="assets/icons/youtube.png" type="Transparent" press=".onOpenSocialLink" tooltip="YouTube">
+					<customData><core:CustomData key="url" value="{i18n>youtubeUrl}" /></customData>
+				</Button>
+			</HBox>
+			<Text id="footerCopyrightText" text="{i18n>footerCopyright}" textAlign="Center" class="sapUiSmallMarginTop" />
+		</VBox>
+	</Panel>
+</core:FragmentDefinition>

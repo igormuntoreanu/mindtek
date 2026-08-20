@@ -1,0 +1,55 @@
+<mvc:View
+	controllerName="mindtek.controller.About"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+>
+	<Page id="aboutPage" showHeader="false" showFooter="false" enableScrolling="true">
+		<content>
+			<VBox id="aboutContent" class="mindtek-content">
+			<VBox id="aboutHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="aboutPageTitleText" text="{i18n>aboutPageTitle}" titleStyle="H2" />
+				<Text id="aboutPageSubtitleText" text="{i18n>aboutPageSubtitle}" class="sapUiTinyMarginTop" />
+			</VBox>
+
+			<Panel id="aboutTextPanel" class="sapUiResponsiveMargin" width="auto">
+				<VBox id="aboutTextContent" class="sapUiSmallMargin">
+					<Text id="companyAboutText" text="{i18n>companyAbout}" />
+					<Text id="companyOperatingModelText" text="{i18n>companyOperatingModel}" class="sapUiSmallMarginTop" />
+				</VBox>
+			</Panel>
+
+			<Panel id="proofPointsPanel" headerText="{i18n>proofPointsTitle}" class="sapUiResponsiveMargin" width="auto">
+				<VBox id="proofPointsList">
+					<HBox id="proofPointRow1" class="sapUiTinyMarginBottom" alignItems="Center">
+						<core:Icon id="proofPointIcon1" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+						<Text id="proofPointText1" text="{i18n>proofPoint1}" wrapping="true" />
+					</HBox>
+					<HBox id="proofPointRow2" class="sapUiTinyMarginBottom" alignItems="Center">
+						<core:Icon id="proofPointIcon2" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+						<Text id="proofPointText2" text="{i18n>proofPoint2}" wrapping="true" />
+					</HBox>
+					<HBox id="proofPointRow3" class="sapUiTinyMarginBottom" alignItems="Center">
+						<core:Icon id="proofPointIcon3" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+						<Text id="proofPointText3" text="{i18n>proofPoint3}" wrapping="true" />
+					</HBox>
+					<HBox id="proofPointRow4" class="sapUiTinyMarginBottom" alignItems="Center">
+						<core:Icon id="proofPointIcon4" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+						<Text id="proofPointText4" text="{i18n>proofPoint4}" wrapping="true" />
+					</HBox>
+				</VBox>
+			</Panel>
+
+			<Panel id="aboutCtaPanel" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
+				<VBox id="aboutCtaContent" class="sapUiMediumMargin" alignItems="Center">
+					<Text id="aboutClosingText" text="{i18n>companyClosingStatement}" textAlign="Center" />
+					<Button id="aboutCtaButton" text="{i18n>ctaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
+				</VBox>
+			</Panel>
+
+			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
+
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

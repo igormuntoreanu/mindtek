@@ -1,0 +1,36 @@
+<mvc:View
+	controllerName="mindtek.controller.EngagementModels"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:layout="sap.ui.layout"
+>
+	<Page id="engagementModelsPage" showHeader="true" showFooter="false" enableScrolling="true">
+		<customHeader>
+			<core:Fragment fragmentName="mindtek.view.fragment.Header" type="XML" />
+		</customHeader>
+		<content>
+			<VBox class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title text="{i18n>engagementModelsPageTitle}" titleStyle="H2" />
+				<Text text="{i18n>engagementModelsPageSubtitle}" class="sapUiTinyMarginTop" />
+			</VBox>
+
+			<layout:Grid defaultSpan="XL4 L4 M4 S12" class="sapUiResponsiveMargin">
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>engagement1Title}" iconSrc="{i18n>engagement1Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>engagement1Description}" /></VBox></f:content></f:Card>
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>engagement2Title}" iconSrc="{i18n>engagement2Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>engagement2Description}" /></VBox></f:content></f:Card>
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>engagement3Title}" iconSrc="{i18n>engagement3Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>engagement3Description}" /></VBox></f:content></f:Card>
+			</layout:Grid>
+
+			<Panel class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
+				<VBox class="sapUiMediumMargin" alignItems="Center">
+					<Title text="{i18n>ctaTitle}" titleStyle="H3" textAlign="Center" />
+					<Button text="{i18n>ctaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
+				</VBox>
+			</Panel>
+
+			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
+		</content>
+	</Page>
+</mvc:View>

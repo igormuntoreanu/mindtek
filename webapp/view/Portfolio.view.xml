@@ -1,0 +1,58 @@
+<mvc:View
+	controllerName="mindtek.controller.Portfolio"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:cssgrid="sap.ui.layout.cssgrid"
+>
+	<Page id="portfolioPage" showHeader="false" showFooter="false" enableScrolling="true">
+		<content>
+			<VBox id="portfolioContent" class="mindtek-content">
+				<VBox id="portfolioHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+					<Title id="portfolioPageTitle" text="{i18n>portfolioTitle}" titleStyle="H2" />
+					<Text id="portfolioPageSubtitle" text="{i18n>portfolioSubtitle}" class="sapUiTinyMarginTop" />
+				</VBox>
+
+				<f:GridList
+					id="portfolioGrid"
+					items="{portfolio>/apps}"
+					itemPress=".onOpenApp"
+					noDataText="{i18n>portfolioSubtitle}"
+					class="sapUiResponsiveMargin sapUiMediumMarginTop">
+					<f:customLayout>
+						<cssgrid:GridBoxLayout id="portfolioGridLayout" boxMinWidth="12rem" />
+					</f:customLayout>
+					<f:GridListItem id="portfolioTileTemplate" type="Active">
+						<VBox id="portfolioTileContent" class="mindtek-tile" alignItems="Center" justifyContent="Center">
+							<core:Icon id="portfolioTileIcon" src="{portfolio>icon}" size="2.25rem" color="#0A6ED1" />
+							<Title id="portfolioTileTitle" text="{portfolio>title}" titleStyle="H6" textAlign="Center" class="sapUiTinyMarginTop" />
+							<Text id="portfolioTileFloorplan" text="{portfolio>floorplan}" textAlign="Center" class="sapUiTinyMarginTop" />
+						</VBox>
+					</f:GridListItem>
+				</f:GridList>
+
+				<Panel id="portfolioDetailPanel" headerText="{i18n>portfolioSelectedTitle}" class="sapUiResponsiveMargin sapUiMediumMarginTop" width="auto">
+					<VBox id="portfolioDetailContent" class="sapUiSmallMargin">
+						<ObjectHeader
+							id="portfolioDetailHeader"
+							title="{portfolio>/selected/title}"
+							intro="{portfolio>/selected/floorplan}"
+							icon="{portfolio>/selected/icon}"
+							iconDensityAware="false">
+							<attributes>
+								<ObjectAttribute id="portfolioDetailAttribute" text="{portfolio>/selected/description}" />
+							</attributes>
+							<statuses>
+								<ObjectStatus id="portfolioDetailStatus" text="{i18n>portfolioComingSoon}" state="Information" />
+							</statuses>
+						</ObjectHeader>
+						<Button id="portfolioDetailButton" text="{i18n>portfolioButton}" type="Emphasized" press=".onNavToContact" class="sapUiSmallMarginTop" />
+					</VBox>
+				</Panel>
+
+				<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

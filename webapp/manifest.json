@@ -1,0 +1,113 @@
+{
+	"_version": "1.60.0",
+	"sap.app": {
+		"id": "mindtek",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": ["SAP", "ABAP", "Fiori", "UI5", "BTP", "CAP", "RAP", "Integration Suite", "Testing", "QA"]
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "assets/mindtek-logo-white.jpeg"
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "mindtek.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.120.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "mindtek.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "mindtek.view",
+				"controlId": "appNavContainer",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "home",
+					"target": "home"
+				},
+				{
+					"pattern": "about",
+					"name": "about",
+					"target": "about"
+				},
+				{
+					"pattern": "portfolio",
+					"name": "portfolio",
+					"target": "portfolio"
+				},
+				{
+					"pattern": "contact",
+					"name": "contact",
+					"target": "contact"
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel": 1
+				},
+				"about": {
+					"viewName": "About",
+					"viewLevel": 1
+				},
+				"portfolio": {
+					"viewName": "Portfolio",
+					"viewLevel": 1
+				},
+				"contact": {
+					"viewName": "Contact",
+					"viewLevel": 1
+				}
+			}
+		}
+	}
+}

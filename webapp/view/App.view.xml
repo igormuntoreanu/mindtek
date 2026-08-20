@@ -1,0 +1,26 @@
+<mvc:View
+	controllerName="mindtek.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	height="100%"
+>
+	<VBox id="appShell" fitContainer="true">
+		<OverflowToolbar id="appShellBar" design="Transparent" width="100%" class="mindtek-shellbar">
+			<Image id="appShellBarLogoLeft" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow" />
+				</layoutData>
+			</Image>
+			<ToolbarSpacer />
+			<Button id="navHomeButton" class="mindtek-nav-btn" text="{i18n>navHome}" type="{= ${nav>/currentRoute} === 'home' ? 'Emphasized' : 'Transparent'}" press=".onNavToHome" />
+			<Button id="navAboutButton" class="mindtek-nav-btn" text="{i18n>navAbout}" type="{= ${nav>/currentRoute} === 'about' ? 'Emphasized' : 'Transparent'}" press=".onNavToAbout" />
+			<Button id="navPortfolioButton" class="mindtek-nav-btn" text="{i18n>navPortfolio}" type="{= ${nav>/currentRoute} === 'portfolio' ? 'Emphasized' : 'Transparent'}" press=".onNavToPortfolio" />
+			<Button id="navContactButton" class="mindtek-nav-btn" text="{i18n>navContact}" type="{= ${nav>/currentRoute} === 'contact' ? 'Emphasized' : 'Transparent'}" press=".onNavToContact" />
+			<ToolbarSpacer />
+			<Image id="appShellBarLogoRight" class="mindtek-logo-right" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome" />
+		</OverflowToolbar>
+		<App id="app">
+			<NavContainer id="appNavContainer" />
+		</App>
+	</VBox>
+</mvc:View>

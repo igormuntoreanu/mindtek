@@ -1,0 +1,80 @@
+<mvc:View
+	controllerName="mindtek.controller.Contact"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form"
+>
+	<Page id="contactPage" showHeader="false" showFooter="false" enableScrolling="true">
+		<content>
+			<VBox id="contactContent" class="mindtek-content">
+			<VBox id="contactHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="contactPageTitleText" text="{i18n>contactPageTitle}" titleStyle="H2" />
+				<Text id="contactPageSubtitleText" text="{i18n>contactPageSubtitle}" class="sapUiTinyMarginTop" />
+			</VBox>
+
+			<Panel id="contactFormPanel" class="sapUiResponsiveMargin" width="auto">
+				<form:SimpleForm
+					id="contactForm"
+					editable="true"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+				>
+					<core:Title id="contactFormTitle" text="{i18n>contactPageTitle}" />
+
+					<Label id="nameLabel" text="{i18n>formName}" required="true" />
+					<Input id="nameInput" value="{form>/name}" placeholder="Jane Doe" />
+
+					<Label id="workEmailLabel" text="{i18n>formWorkEmail}" required="true" />
+					<Input id="workEmailInput" type="Email" value="{form>/workEmail}" placeholder="jane.doe@example.com" />
+
+					<Label id="companyLabel" text="{i18n>formCompany}" />
+					<Input id="companyInput" value="{form>/company}" placeholder="Your company" />
+
+					<Label id="projectTypeLabel" text="{i18n>formProjectType}" />
+					<Select id="projectTypeSelect" selectedKey="{form>/projectType}" forceSelection="false" autoAdjustWidth="true">
+						<core:Item id="projectTypeItem1" key="{i18n>projectType1}" text="{i18n>projectType1}" />
+						<core:Item id="projectTypeItem2" key="{i18n>projectType2}" text="{i18n>projectType2}" />
+						<core:Item id="projectTypeItem3" key="{i18n>projectType3}" text="{i18n>projectType3}" />
+						<core:Item id="projectTypeItem4" key="{i18n>projectType4}" text="{i18n>projectType4}" />
+						<core:Item id="projectTypeItem5" key="{i18n>projectType5}" text="{i18n>projectType5}" />
+						<core:Item id="projectTypeItem6" key="{i18n>projectType6}" text="{i18n>projectType6}" />
+						<core:Item id="projectTypeItem7" key="{i18n>projectType7}" text="{i18n>projectType7}" />
+					</Select>
+
+					<Label id="requirementLabel" text="{i18n>formRequirement}" required="true" />
+					<TextArea id="requirementInput" value="{form>/requirement}" rows="4" width="100%" placeholder="What would you like MindTek to help with?" />
+				</form:SimpleForm>
+
+				<Text id="privacyNoticeTitleText" text="{i18n>privacyNoticeTitle}: " class="sapUiSmallMarginTop" />
+				<Text id="privacyNoticeText" text="{i18n>contactPrivacyNotice}" />
+
+				<HBox id="contactEmailRow" class="sapUiTinyMarginTop" wrap="Wrap">
+					<Text id="contactEmailLabelText" text="{i18n>contactEmailLabel}" class="sapUiTinyMarginEnd" />
+					<Text id="contactEmailValueText" text="{i18n>companyContactEmail}" />
+				</HBox>
+
+				<Toolbar id="contactFormToolbar" class="sapUiTinyMarginTop">
+					<ToolbarSpacer />
+					<Button id="clearFormButton" text="{i18n>formClear}" type="Transparent" press=".onClearForm" />
+					<Button id="submitFormButton" text="{i18n>formSubmit}" type="Emphasized" icon="sap-icon://email" press=".onSubmitRequest" />
+				</Toolbar>
+			</Panel>
+
+			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
+
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

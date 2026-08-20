@@ -1,0 +1,32 @@
+<mvc:View
+	controllerName="mindtek.controller.Services"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:layout="sap.ui.layout"
+>
+	<Page id="servicesPage" showHeader="true" showFooter="false" enableScrolling="true">
+		<customHeader>
+			<core:Fragment fragmentName="mindtek.view.fragment.Header" type="XML" />
+		</customHeader>
+		<content>
+			<VBox class="sapUiResponsiveMargin">
+				<Title text="{i18n>servicesPageTitle}" titleStyle="H2" />
+				<Text text="{i18n>servicesPageSubtitle}" class="sapUiTinyMarginTop" />
+			</VBox>
+
+			<layout:Grid defaultSpan="XL4 L4 M6 S12" class="sapUiResponsiveMargin sapUiSmallMarginTop">
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>service1Title}" subtitle="{i18n>service1Subtitle}" iconSrc="{i18n>service1Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service1Description}" /></VBox></f:content></f:Card>
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>service2Title}" subtitle="{i18n>service2Subtitle}" iconSrc="{i18n>service2Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service2Description}" /></VBox></f:content></f:Card>
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>service3Title}" subtitle="{i18n>service3Subtitle}" iconSrc="{i18n>service3Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service3Description}" /></VBox></f:content></f:Card>
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>service4Title}" subtitle="{i18n>service4Subtitle}" iconSrc="{i18n>service4Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service4Description}" /></VBox></f:content></f:Card>
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>service5Title}" subtitle="{i18n>service5Subtitle}" iconSrc="{i18n>service5Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service5Description}" /></VBox></f:content></f:Card>
+				<f:Card><f:header><card:Header iconBackgroundColor="Accent7" title="{i18n>service6Title}" subtitle="{i18n>service6Subtitle}" iconSrc="{i18n>service6Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service6Description}" /></VBox></f:content></f:Card>
+			</layout:Grid>
+
+			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
+		</content>
+	</Page>
+</mvc:View>

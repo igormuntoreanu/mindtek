@@ -1,0 +1,34 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<OverflowToolbar id="mindtekHeaderToolbar" design="Solid" width="100%">
+		<Image class="sapUiSmallMarginBegin" src="assets/mindtek-logo.jpg" densityAware="false" height="2.5rem" decorative="false" alt="MindTek logo" />
+		<ToolbarSpacer />
+		<Button text="{i18n>navHome}" type="{= ${nav>/currentRoute} === 'home' ? 'Emphasized' : 'Transparent'}" press=".onNavToHome">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low" />
+			</layoutData>
+		</Button>
+		<Button text="{i18n>navServices}" type="{= ${nav>/currentRoute} === 'services' ? 'Emphasized' : 'Transparent'}" press=".onNavToServices">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low" />
+			</layoutData>
+		</Button>
+		<Button text="{i18n>navEngagementModels}" type="{= ${nav>/currentRoute} === 'engagementModels' ? 'Emphasized' : 'Transparent'}" press=".onNavToEngagementModels">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low" />
+			</layoutData>
+		</Button>
+		<Button text="{i18n>navAbout}" type="{= ${nav>/currentRoute} === 'about' ? 'Emphasized' : 'Transparent'}" press=".onNavToAbout">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low" />
+			</layoutData>
+		</Button>
+		<Button text="{i18n>navContact}" type="{= ${nav>/currentRoute} === 'contact' ? 'Emphasized' : 'Transparent'}" press=".onNavToContact">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="High" />
+			</layoutData>
+		</Button>
+	</OverflowToolbar>
+</core:FragmentDefinition>

@@ -1,0 +1,148 @@
+<mvc:View
+	controllerName="mindtek.controller.Home"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+>
+	<Page id="homePage" showHeader="false" showFooter="false" enableScrolling="true">
+		<content>
+			<VBox id="homeContent" class="mindtek-content">
+			<!-- Hero -->
+			<VBox id="homeHero" class="sapUiResponsiveMargin sapUiLargeMarginTop mindtek-hero" alignItems="Center">
+				<Title id="heroTitle" text="{i18n>companyHeroTitle}" titleStyle="H1" textAlign="Center" wrapping="true" width="100%" />
+				<Text id="heroText" text="{i18n>companyHeroText}" textAlign="Center" class="sapUiSmallMarginTop" />
+				<HBox id="heroActions" class="sapUiMediumMarginTop" justifyContent="Center" wrap="Wrap">
+					<Button id="heroDiscussButton" text="{i18n>heroDiscussButton}" type="Emphasized" press=".onNavToContact" class="sapUiTinyMarginEnd" />
+					<Button id="heroExploreButton" text="{i18n>heroExploreButton}" type="Default" press=".onScrollToServices" />
+				</HBox>
+			</VBox>
+
+			<!-- Why MindTek -->
+			<VBox id="whySection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="whyTitle" text="{i18n>whyMindTekTitle}" titleStyle="H2" />
+				<HBox id="whyGrid" wrap="Wrap" class="mindtek-cards sapUiSmallMarginTop">
+					<f:Card id="whyCard1" class="mindtek-card mindtek-card-item">
+						<f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>whyMindTek1Title}" iconSrc="{i18n>whyMindTek1Icon}" /></f:header>
+						<f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>whyMindTek1Description}" /></VBox></f:content>
+					</f:Card>
+					<f:Card id="whyCard2" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>whyMindTek2Title}" iconSrc="{i18n>whyMindTek2Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>whyMindTek2Description}" /></VBox></f:content></f:Card>
+					<f:Card id="whyCard3" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>whyMindTek3Title}" iconSrc="{i18n>whyMindTek3Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>whyMindTek3Description}" /></VBox></f:content></f:Card>
+				</HBox>
+			</VBox>
+
+			<!-- Services at a Glance -->
+			<VBox id="servicesSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="servicesTitle" text="{i18n>servicesGlanceTitle}" titleStyle="H2" />
+				<Text id="servicesSubtitle" text="{i18n>servicesGlanceSubtitle}" class="sapUiTinyMarginTop" />
+				<HBox id="servicesGrid" wrap="Wrap" class="mindtek-cards sapUiSmallMarginTop">
+					<f:Card id="serviceCard1" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>service1Title}" subtitle="{i18n>service1Subtitle}" iconSrc="{i18n>service1Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service1Description}" /></VBox></f:content></f:Card>
+					<f:Card id="serviceCard2" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>service2Title}" subtitle="{i18n>service2Subtitle}" iconSrc="{i18n>service2Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service2Description}" /></VBox></f:content></f:Card>
+					<f:Card id="serviceCard3" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>service3Title}" subtitle="{i18n>service3Subtitle}" iconSrc="{i18n>service3Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service3Description}" /></VBox></f:content></f:Card>
+					<f:Card id="serviceCard4" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>service4Title}" subtitle="{i18n>service4Subtitle}" iconSrc="{i18n>service4Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service4Description}" /></VBox></f:content></f:Card>
+					<f:Card id="serviceCard5" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>service5Title}" subtitle="{i18n>service5Subtitle}" iconSrc="{i18n>service5Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service5Description}" /></VBox></f:content></f:Card>
+					<f:Card id="serviceCard6" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>service6Title}" subtitle="{i18n>service6Subtitle}" iconSrc="{i18n>service6Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>service6Description}" /></VBox></f:content></f:Card>
+				</HBox>
+			</VBox>
+
+			<!-- Engagement Models -->
+			<VBox id="engagementSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="engagementTitle" text="{i18n>engagementModelsHomeTitle}" titleStyle="H2" />
+				<HBox id="engagementGrid" wrap="Wrap" class="mindtek-cards sapUiSmallMarginTop">
+					<f:Card id="engagementCard1" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>engagement1Title}" iconSrc="{i18n>engagement1Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>engagement1Description}" /></VBox></f:content></f:Card>
+					<f:Card id="engagementCard2" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>engagement2Title}" iconSrc="{i18n>engagement2Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>engagement2Description}" /></VBox></f:content></f:Card>
+					<f:Card id="engagementCard3" class="mindtek-card mindtek-card-item"><f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>engagement3Title}" iconSrc="{i18n>engagement3Icon}" /></f:header><f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>engagement3Description}" /></VBox></f:content></f:Card>
+				</HBox>
+			</VBox>
+
+			<!-- How We Work -->
+			<VBox id="approachSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="approachTitle" text="{i18n>howWeWorkTitle}" titleStyle="H2" />
+				<Text id="approachSubtitle" text="{i18n>howWeWorkSubtitle}" class="sapUiTinyMarginTop" />
+				<Wizard
+					id="approachWizard"
+					renderMode="Page"
+					showNextButton="false"
+					nextButtonText="{i18n>wizardNext}"
+					finishButtonText="{i18n>wizardFinish}"
+					complete=".onWizardComplete"
+					class="sapUiMediumMarginTop"
+				>
+					<WizardStep id="approachStep1" title="{i18n>approach1Title}" icon="sap-icon://collaborate" validated="true">
+						<VBox id="approachStep1Content" class="sapUiMediumMargin">
+							<Text id="approachText1" text="{i18n>approach1Description}" class="sapUiSmallMarginTop" />
+							<Button id="approachNextButton1" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
+						</VBox>
+					</WizardStep>
+					<WizardStep id="approachStep2" title="{i18n>approach2Title}" icon="sap-icon://task" validated="true">
+						<VBox id="approachStep2Content" class="sapUiMediumMargin">
+							<Text id="approachText2" text="{i18n>approach2Description}" class="sapUiSmallMarginTop" />
+							<Button id="approachNextButton2" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
+						</VBox>
+					</WizardStep>
+					<WizardStep id="approachStep3" title="{i18n>approach3Title}" icon="sap-icon://status-in-process" validated="true">
+						<VBox id="approachStep3Content" class="sapUiMediumMargin">
+							<Text id="approachText3" text="{i18n>approach3Description}" class="sapUiSmallMarginTop" />
+							<Button id="approachNextButton3" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
+						</VBox>
+					</WizardStep>
+					<WizardStep id="approachStep4" title="{i18n>approach4Title}" icon="sap-icon://wrench" validated="true">
+						<VBox id="approachStep4Content" class="sapUiMediumMargin">
+							<Text id="approachText4" text="{i18n>approach4Description}" class="sapUiSmallMarginTop" />
+							<Button id="approachNextButton4" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
+						</VBox>
+					</WizardStep>
+				</Wizard>
+			</VBox>
+
+			<!-- Client Experience -->
+			<Panel id="clientExperiencePanel" headerText="{i18n>clientExperienceTitle}" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
+				<VBox id="clientExperienceContent" class="sapUiSmallMargin" alignItems="Center">
+					<Text id="clientExperienceSubtitleText" text="{i18n>clientExperienceSubtitle}" textAlign="Center" />
+					<HBox id="clientLogos" class="sapUiMediumMarginTop" wrap="Wrap" justifyContent="Center" alignItems="Center">
+						<Image id="logoMercedesBenz" src="assets/logos/mercedes-benz.jpg" alt="Mercedes-Benz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoPorsche" src="assets/logos/porsche.jpg" alt="Porsche" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoUnilever" src="assets/logos/unilever.jpg" alt="Unilever" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoBayer" src="assets/logos/bayer.jpg" alt="Bayer" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoBacardi" src="assets/logos/bacardi.jpg" alt="Bacardi" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoDeutscheTelekom" src="assets/logos/deutsche-telekom.jpg" alt="Deutsche Telekom" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoAccenture" src="assets/logos/accenture.jpg" alt="Accenture" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoCapgemini" src="assets/logos/capgemini.jpg" alt="Capgemini" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoJohnDeere" src="assets/logos/john-deere.jpg" alt="John Deere" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoBunge" src="assets/logos/bunge.jpg" alt="Bunge" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoNatura" src="assets/logos/natura.jpg" alt="Natura" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoBrf" src="assets/logos/brf.jpg" alt="BRF" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoVoith" src="assets/logos/voith.jpg" alt="Voith" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoInfoglobo" src="assets/logos/infoglobo.jpg" alt="Infoglobo" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoProvinzial" src="assets/logos/provinzial.jpg" alt="Provinzial" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoCogna" src="assets/logos/cogna.jpg" alt="Cogna" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoHochschulrektorenkonferenz" src="assets/logos/hochschulrektorenkonferenz.jpg" alt="Hochschulrektorenkonferenz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoAlleasy" src="assets/logos/alleasy.jpg" alt="Alleasy" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+						<Image id="logoSow" src="assets/logos/sow.jpg" alt="SOW" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					</HBox>
+				</VBox>
+			</Panel>
+
+			<!-- Portfolio teaser -->
+			<Panel id="portfolioTeaserPanel" headerText="{i18n>portfolioTeaserTitle}" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
+				<VBox id="portfolioTeaserContent" class="sapUiSmallMargin" alignItems="Center">
+					<Text id="portfolioTeaserSubtitleText" text="{i18n>portfolioTeaserSubtitle}" textAlign="Center" />
+					<Button id="portfolioTeaserButton" text="{i18n>portfolioTeaserButton}" type="Emphasized" press=".onNavToPortfolio" class="sapUiSmallMarginTop" />
+				</VBox>
+			</Panel>
+
+			<!-- Closing CTA -->
+			<Panel id="closingCtaPanel" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
+				<VBox id="closingCtaContent" class="sapUiMediumMargin" alignItems="Center">
+					<Title id="closingCtaTitle" text="{i18n>ctaTitle}" titleStyle="H3" wrapping="true" textAlign="Center" />
+					<Text id="closingCtaText" text="{i18n>companyClosingStatement}" textAlign="Center" class="sapUiSmallMarginTop" />
+					<Button id="closingCtaButton" text="{i18n>ctaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
+				</VBox>
+			</Panel>
+
+			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

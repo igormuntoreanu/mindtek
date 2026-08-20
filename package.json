@@ -1,0 +1,14 @@
+{
+	"name": "mindtek",
+	"version": "1.0.0",
+	"description": "MindTek – SAP Technical Support company website (OpenUI5, i18n-backed static content)",
+	"private": true,
+	"scripts": {
+		"start": "ui5 serve --open index.html",
+		"start-cdn": "ui5 serve --config ui5-cdn.yaml --open index.html",
+		"build": "ui5 build --clean-dest"
+	},
+	"devDependencies": {
+		"@ui5/cli": "^3.9.0"
+	}
+}
