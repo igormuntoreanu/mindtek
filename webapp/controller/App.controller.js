@@ -30,6 +30,45 @@ sap.ui.define([
 					oLogo.attachBrowserEvent("click", this.onNavToHome, this);
 				}
 			}
+
+			this._initCookieBanner();
+		},
+
+		/**
+		 * Shows the cookie consent banner once per browser unless the user has
+		 * already accepted. The site sets no tracking cookies, so accepting just
+		 * records the choice in localStorage.
+		 */
+		_initCookieBanner: function () {
+			var sConsent = null;
+			try {
+				sConsent = window.localStorage.getItem("mindtek_cookie_consent");
+			} catch (e) {
+				// localStorage unavailable - still show the banner
+			}
+			if (sConsent !== "accepted") {
+				var oBanner = this.getView().byId("cookieBanner");
+				if (oBanner) {
+					oBanner.setVisible(true);
+				}
+			}
+		},
+
+		onCookieBannerAccept: function () {
+			try {
+				window.localStorage.setItem("mindtek_cookie_consent", "accepted");
+			} catch (e) {
+				// ignore storage failures
+			}
+			this.getView().byId("cookieBanner").setVisible(false);
+		},
+
+		onCookieBannerPrivacy: function () {
+			this.getView().byId("privacyDialog").open();
+		},
+
+		onPrivacyDialogClose: function () {
+			this.getView().byId("privacyDialog").close();
 		}
 	});
 });

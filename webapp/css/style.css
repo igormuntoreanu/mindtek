@@ -31,6 +31,20 @@
 	object-fit: contain;
 }
 
+/* Fixed cookie consent banner at the bottom of the viewport */
+.mindtek-cookie-banner {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: #ffffff !important;
+	border-top: 1px solid #d9d9d9;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+	padding: 0.25rem 1rem;
+	box-sizing: border-box;
+}
+
 /* Make the tile content fill the whole tile so the icon/title/text centre vertically */
 .sapFGLI .sapFGLIWrapper,
 .sapFGLI .sapMLIBContent {
@@ -69,3 +83,5 @@
 .mindtek-card {
 	height: 100%;
 }
+
+
