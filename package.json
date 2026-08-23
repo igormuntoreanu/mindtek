@@ -5,7 +5,6 @@
 	"private": true,
 	"scripts": {
 		"start": "ui5 serve --open index.html",
-		"start-cdn": "ui5 serve --config ui5-cdn.yaml --open index.html",
 		"build": "ui5 build --clean-dest"
 	},
 	"devDependencies": {
