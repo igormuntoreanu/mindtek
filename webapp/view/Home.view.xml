@@ -64,7 +64,6 @@
 					id="approachWizard"
 					renderMode="Page"
 					showNextButton="false"
-					nextButtonText="{i18n>wizardNext}"
 					finishButtonText="{i18n>wizardFinish}"
 					complete=".onWizardComplete"
 					class="sapUiMediumMarginTop"
