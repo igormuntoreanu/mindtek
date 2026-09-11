@@ -55,6 +55,7 @@ sap.ui.define([
 				var oBanner = this.getView().byId("cookieBanner");
 				if (oBanner) {
 					oBanner.setVisible(true);
+					this.byId("appShell").addStyleClass("mindtek-has-cookie-banner");
 				}
 			}
 		},
@@ -66,6 +67,7 @@ sap.ui.define([
 				// ignore storage failures
 			}
 			this.getView().byId("cookieBanner").setVisible(false);
+			this.byId("appShell").removeStyleClass("mindtek-has-cookie-banner");
 		},
 
 		onCookieBannerPrivacy: function () {

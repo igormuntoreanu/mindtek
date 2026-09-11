@@ -39,11 +39,9 @@
 				</layoutData>
 			</Image>
 		</OverflowToolbar>
-		<NavContainer id="appNavContainer" class="mindtek-app-nav">
-			<layoutData>
-				<FlexItemData growFactor="1" shrinkFactor="1" minHeight="0" />
-			</layoutData>
-		</NavContainer>
+		<App id="app">
+			<NavContainer id="appNavContainer" />
+		</App>
 		<HBox
 			id="cookieBanner"
 			class="mindtek-cookie-banner"
