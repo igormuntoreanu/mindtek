@@ -20,7 +20,7 @@
 			<Image id="appShellBarLogoRight" class="mindtek-logo-right" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome" />
 		</OverflowToolbar>
 		<App id="app">
-			<NavContainer id="appNavContainer" />
+			<NavContainer id="appNavContainer" autoFocus="false" afterNavigate=".onAfterNavigate" />
 		</App>
 		<HBox
 			id="cookieBanner"

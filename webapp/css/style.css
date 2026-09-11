@@ -90,4 +90,11 @@
 	min-width: 12.5rem !important;
 }
 
+/* If a Select picker still opens as a stretched dialog, keep it compact. */
+.sapMSltPicker.sapMDialogStretch {
+	width: min(28rem, 92vw) !important;
+	height: auto !important;
+	max-height: 70vh !important;
+}
+
 

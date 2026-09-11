@@ -15,6 +15,23 @@ sap.ui.define([
 				projectType: "",
 				requirement: ""
 			}), "form");
+
+			// sap.m.Select opens a stretched full-screen Dialog on phone-sized
+			// viewports. This landing page always wants a compact dropdown.
+			this._usePopoverPicker(this.byId("projectTypeSelect"));
+		},
+
+		/**
+		 * Recreates the Select picker as a Popover when UI5 would have used a Dialog.
+		 * @param {sap.m.Select} oSelect the project-type field
+		 */
+		_usePopoverPicker: function (oSelect) {
+			if (!oSelect || oSelect.getPickerType() === "Popover") {
+				return;
+			}
+			oSelect.destroyAggregation("picker");
+			oSelect.setPickerType("Popover");
+			oSelect.createPicker("Popover");
 		},
 
 		onSubmitRequest: function () {
