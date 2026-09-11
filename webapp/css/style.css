@@ -84,4 +84,10 @@
 	height: 100%;
 }
 
+/* Four process cards sit in one row on desktop, then wrap 2×2 / stacked. */
+.mindtek-cards-steps > .sapMFlexItem {
+	flex: 1 1 21% !important;
+	min-width: 12.5rem !important;
+}
+
 
