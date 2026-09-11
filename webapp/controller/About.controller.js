@@ -4,6 +4,8 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("mindtek.controller.About", {
-		onInit: function () {}
+		onInit: function () {
+			this.attachNativeClick("aboutCtaButton", this.onNavToContact);
+		}
 	});
 });

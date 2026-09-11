@@ -4,7 +4,12 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("mindtek.controller.Home", {
-		onInit: function () {},
+		onInit: function () {
+			this.attachNativeClick("heroDiscussButton", this.onNavToContact);
+			this.attachNativeClick("closingCtaButton", this.onNavToContact);
+			this.attachNativeClick("heroExploreButton", this.onScrollToServices);
+			this.attachNativeClick("portfolioTeaserButton", this.onNavToPortfolio);
+		},
 
 		onAfterRendering: function () {
 			// Auto-advance the "How We Work" wizard in a loop for showcase visuals

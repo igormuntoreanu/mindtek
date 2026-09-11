@@ -60,6 +60,7 @@ sap.ui.define([
 				]
 			};
 			this.getView().setModel(new JSONModel(oData), "portfolio");
+			this.attachNativeClick("portfolioDetailButton", this.onNavToContact);
 		},
 
 		onOpenApp: function (oEvent) {

@@ -20,6 +20,21 @@ sap.ui.define([
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
 
+		/**
+		 * UI5 Button `press` is synthesised from tap/mouse sequences and can miss a
+		 * native click on some browsers. Bind click as well, once per control.
+		 * @param {string} sId view-local control id
+		 * @param {Function} fnHandler handler invoked with the controller as `this`
+		 */
+		attachNativeClick: function (sId, fnHandler) {
+			var oControl = this.byId(sId);
+			if (!oControl || oControl.data("nativeClickBound")) {
+				return;
+			}
+			oControl.data("nativeClickBound", true);
+			oControl.attachBrowserEvent("click", fnHandler, this);
+		},
+
 		onNavToHome: function () {
 			// Guard against double navigation (the logo can fire both the Image press
 			// and a native click fallback).

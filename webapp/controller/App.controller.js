@@ -14,6 +14,11 @@ sap.ui.define([
 			this.getRouter().attachRouteMatched(function (oEvent) {
 				oNavModel.setProperty("/currentRoute", oEvent.getParameter("name"));
 			}, this);
+
+			this.attachNativeClick("navHomeButton", this.onNavToHome);
+			this.attachNativeClick("navAboutButton", this.onNavToAbout);
+			this.attachNativeClick("navPortfolioButton", this.onNavToPortfolio);
+			this.attachNativeClick("navContactButton", this.onNavToContact);
 		},
 
 		onAfterRendering: function () {
