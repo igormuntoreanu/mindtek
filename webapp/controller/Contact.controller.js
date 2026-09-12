@@ -33,7 +33,7 @@ sap.ui.define([
 			// one task so the Name field receives it.
 			setTimeout(function () {
 				oNameInput.focus();
-			}, 0);
+			}, 200);
 		},
 
 		onSubmitRequest: function () {
