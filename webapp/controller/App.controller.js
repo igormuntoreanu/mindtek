@@ -76,6 +76,17 @@ sap.ui.define([
 
 		onPrivacyDialogClose: function () {
 			this.getView().byId("privacyDialog").close();
+		},
+
+		/**
+		 * Keep each page at the top after navigation so autofocus on a tile
+		 * or form field cannot hide the page heading.
+		 */
+		onAfterNavigate: function (oEvent) {
+			var oTo = oEvent.getParameter("to");
+			if (oTo && typeof oTo.scrollTo === "function") {
+				oTo.scrollTo(0, 0);
+			}
 		}
 	});
 });

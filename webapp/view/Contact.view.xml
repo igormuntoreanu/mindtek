@@ -31,8 +31,6 @@
 					columnsL="1"
 					columnsM="1"
 				>
-					<core:Title id="contactFormTitle" text="{i18n>contactPageTitle}" />
-
 					<Label id="nameLabel" text="{i18n>formName}" required="true" />
 					<Input id="nameInput" value="{form>/name}" placeholder="Jane Doe" />
 
@@ -43,7 +41,7 @@
 					<Input id="companyInput" value="{form>/company}" placeholder="Your company" />
 
 					<Label id="projectTypeLabel" text="{i18n>formProjectType}" />
-					<Select id="projectTypeSelect" selectedKey="{form>/projectType}" forceSelection="false" autoAdjustWidth="true">
+					<Select id="projectTypeSelect" selectedKey="{form>/projectType}" forceSelection="false" width="100%">
 						<core:Item id="projectTypeItem1" key="{i18n>projectType1}" text="{i18n>projectType1}" />
 						<core:Item id="projectTypeItem2" key="{i18n>projectType2}" text="{i18n>projectType2}" />
 						<core:Item id="projectTypeItem3" key="{i18n>projectType3}" text="{i18n>projectType3}" />

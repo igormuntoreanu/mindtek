@@ -60,39 +60,24 @@
 			<VBox id="approachSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
 				<Title id="approachTitle" text="{i18n>howWeWorkTitle}" titleStyle="H2" />
 				<Text id="approachSubtitle" text="{i18n>howWeWorkSubtitle}" class="sapUiTinyMarginTop" />
-				<Wizard
-					id="approachWizard"
-					renderMode="Page"
-					showNextButton="false"
-					finishButtonText="{i18n>wizardFinish}"
-					complete=".onWizardComplete"
-					class="sapUiMediumMarginTop"
-				>
-					<WizardStep id="approachStep1" title="{i18n>approach1Title}" icon="sap-icon://collaborate" validated="true">
-						<VBox id="approachStep1Content" class="sapUiMediumMargin">
-							<Text id="approachText1" text="{i18n>approach1Description}" class="sapUiSmallMarginTop" />
-							<Button id="approachNextButton1" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
-						</VBox>
-					</WizardStep>
-					<WizardStep id="approachStep2" title="{i18n>approach2Title}" icon="sap-icon://task" validated="true">
-						<VBox id="approachStep2Content" class="sapUiMediumMargin">
-							<Text id="approachText2" text="{i18n>approach2Description}" class="sapUiSmallMarginTop" />
-							<Button id="approachNextButton2" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
-						</VBox>
-					</WizardStep>
-					<WizardStep id="approachStep3" title="{i18n>approach3Title}" icon="sap-icon://status-in-process" validated="true">
-						<VBox id="approachStep3Content" class="sapUiMediumMargin">
-							<Text id="approachText3" text="{i18n>approach3Description}" class="sapUiSmallMarginTop" />
-							<Button id="approachNextButton3" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
-						</VBox>
-					</WizardStep>
-					<WizardStep id="approachStep4" title="{i18n>approach4Title}" icon="sap-icon://wrench" validated="true">
-						<VBox id="approachStep4Content" class="sapUiMediumMargin">
-							<Text id="approachText4" text="{i18n>approach4Description}" class="sapUiSmallMarginTop" />
-							<Button id="approachNextButton4" type="Emphasized" press=".onApproachNextButton" class="sapUiMediumMarginTop" />
-						</VBox>
-					</WizardStep>
-				</Wizard>
+				<HBox id="approachGrid" wrap="Wrap" class="mindtek-cards mindtek-cards-steps sapUiSmallMarginTop">
+					<f:Card id="approachCard1" class="mindtek-card mindtek-card-item">
+						<f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>approach1Title}" subtitle="{i18n>approach1Subtitle}" iconSrc="{i18n>approach1Icon}" /></f:header>
+						<f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>approach1Description}" /></VBox></f:content>
+					</f:Card>
+					<f:Card id="approachCard2" class="mindtek-card mindtek-card-item">
+						<f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>approach2Title}" subtitle="{i18n>approach2Subtitle}" iconSrc="{i18n>approach2Icon}" /></f:header>
+						<f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>approach2Description}" /></VBox></f:content>
+					</f:Card>
+					<f:Card id="approachCard3" class="mindtek-card mindtek-card-item">
+						<f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>approach3Title}" subtitle="{i18n>approach3Subtitle}" iconSrc="{i18n>approach3Icon}" /></f:header>
+						<f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>approach3Description}" /></VBox></f:content>
+					</f:Card>
+					<f:Card id="approachCard4" class="mindtek-card mindtek-card-item">
+						<f:header><card:Header iconBackgroundColor="Accent6" title="{i18n>approach4Title}" subtitle="{i18n>approach4Subtitle}" iconSrc="{i18n>approach4Icon}" /></f:header>
+						<f:content><VBox class="sapUiSmallMargin"><Text text="{i18n>approach4Description}" /></VBox></f:content>
+					</f:Card>
+				</HBox>
 			</VBox>
 
 			<!-- Client Experience -->

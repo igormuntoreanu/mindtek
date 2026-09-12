@@ -6,6 +6,10 @@ sap.ui.define([
 
 	return BaseController.extend("mindtek.controller.Portfolio", {
 		onInit: function () {
+			this.byId("portfolioPage").addEventDelegate({
+				onAfterShow: this.onPortfolioShown
+			}, this);
+
 			var oData = {
 				selected: {
 					key: "lrop",
@@ -61,6 +65,22 @@ sap.ui.define([
 			};
 			this.getView().setModel(new JSONModel(oData), "portfolio");
 			this.attachNativeClick("portfolioDetailButton", this.onNavToContact);
+		},
+
+		/**
+		 * Show the Portfolio intro first. GridList otherwise focuses the first
+		 * tile and the page heading scrolls out of view.
+		 */
+		onPortfolioShown: function () {
+			var oPage = this.byId("portfolioPage");
+			var oTitle = this.byId("portfolioPageTitle");
+			if (oTitle && oTitle.getDomRef()) {
+				oTitle.getDomRef().setAttribute("tabindex", "-1");
+				oTitle.getDomRef().focus({ preventScroll: true });
+			}
+			if (oPage) {
+				oPage.scrollTo(0, 0);
+			}
 		},
 
 		onOpenApp: function (oEvent) {

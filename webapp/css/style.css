@@ -89,4 +89,17 @@
 	height: 100%;
 }
 
+/* Four process cards sit in one row on desktop, then wrap 2×2 / stacked. */
+.mindtek-cards-steps > .sapMFlexItem {
+	flex: 1 1 21% !important;
+	min-width: 12.5rem !important;
+}
+
+/* If a Select picker still opens as a stretched dialog, keep it compact. */
+.sapMSltPicker.sapMDialogStretch {
+	width: min(28rem, 92vw) !important;
+	height: auto !important;
+	max-height: 70vh !important;
+}
+
 

@@ -40,7 +40,7 @@
 			</Image>
 		</OverflowToolbar>
 		<App id="app">
-			<NavContainer id="appNavContainer" />
+			<NavContainer id="appNavContainer" autoFocus="false" afterNavigate=".onAfterNavigate" />
 		</App>
 		<HBox
 			id="cookieBanner"
