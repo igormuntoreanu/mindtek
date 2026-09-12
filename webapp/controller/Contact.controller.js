@@ -7,7 +7,9 @@ sap.ui.define([
 
 	return BaseController.extend("mindtek.controller.Contact", {
 		onInit: function () {
-			// local, page-scoped model holding the current form input
+			// Do not destroy or recreate sap.m.Select's picker here. On phones
+			// Select.init() already creates a Dialog picker; tearing it down
+			// also destroys internal texts and the Contact page never appears.
 			this.getView().setModel(new JSONModel({
 				name: "",
 				workEmail: "",
@@ -15,23 +17,6 @@ sap.ui.define([
 				projectType: "",
 				requirement: ""
 			}), "form");
-
-			// sap.m.Select opens a stretched full-screen Dialog on phone-sized
-			// viewports. This landing page always wants a compact dropdown.
-			this._usePopoverPicker(this.byId("projectTypeSelect"));
-		},
-
-		/**
-		 * Recreates the Select picker as a Popover when UI5 would have used a Dialog.
-		 * @param {sap.m.Select} oSelect the project-type field
-		 */
-		_usePopoverPicker: function (oSelect) {
-			if (!oSelect || oSelect.getPickerType() === "Popover") {
-				return;
-			}
-			oSelect.destroyAggregation("picker");
-			oSelect.setPickerType("Popover");
-			oSelect.createPicker("Popover");
 		},
 
 		onSubmitRequest: function () {
