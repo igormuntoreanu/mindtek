@@ -15,25 +15,32 @@ sap.ui.define([
 				requirement: ""
 			}), "form");
 
+			this.getRouter().getRoute("contact").attachPatternMatched(this.onContactMatched, this);
 			this.byId("contactPage").addEventDelegate({
 				onAfterShow: this.onAfterShow
 			}, this);
 		},
 
+		onContactMatched: function () {
+			this._focusName();
+		},
+
 		/**
-		 * sap.m.NavContainer / sap.m.App autoFocus lands on the first focusable
-		 * control of the page. Focus Name explicitly so the enquiry form is ready.
+		 * sap.m.App autoFocus lands on the first focusable control. Focus Name
+		 * explicitly so the enquiry form is ready after every visit.
 		 */
 		onAfterShow: function () {
+			this._focusName();
+		},
+
+		_focusName: function () {
 			var oNameInput = this.byId("nameInput");
 			if (!oNameInput) {
 				return;
 			}
-			// After navigation the tapped header button can keep focus; wait
-			// one task so the Name field receives it.
 			setTimeout(function () {
 				oNameInput.focus();
-			}, 200);
+			}, 300);
 		},
 
 		onSubmitRequest: function () {
