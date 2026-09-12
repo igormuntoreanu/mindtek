@@ -7,9 +7,6 @@ sap.ui.define([
 
 	return BaseController.extend("mindtek.controller.Contact", {
 		onInit: function () {
-			// Do not destroy or recreate sap.m.Select's picker here. On phones
-			// Select.init() already creates a Dialog picker; tearing it down
-			// also destroys internal texts and the Contact page never appears.
 			this.getView().setModel(new JSONModel({
 				name: "",
 				workEmail: "",
@@ -17,12 +14,33 @@ sap.ui.define([
 				projectType: "",
 				requirement: ""
 			}), "form");
+
+			this.byId("contactPage").addEventDelegate({
+				onAfterShow: this.onAfterShow
+			}, this);
+		},
+
+		/**
+		 * sap.m.NavContainer / sap.m.App autoFocus lands on the first focusable
+		 * control of the page. Focus Name explicitly so the enquiry form is ready.
+		 */
+		onAfterShow: function () {
+			var oNameInput = this.byId("nameInput");
+			if (oNameInput) {
+				oNameInput.focus();
+			}
 		},
 
 		onSubmitRequest: function () {
-			var oResourceBundle = this.getResourceBundle();
 			var oFormData = this.getView().getModel("form").getData();
+			var that = this;
 
+			Promise.resolve(this.getResourceBundle()).then(function (oResourceBundle) {
+				that._submitWithBundle(oResourceBundle, oFormData);
+			});
+		},
+
+		_submitWithBundle: function (oResourceBundle, oFormData) {
 			if (!oFormData.name || !oFormData.workEmail || !oFormData.requirement) {
 				MessageBox.warning(oResourceBundle.getText("validationErrorMessage"), {
 					title: oResourceBundle.getText("validationErrorTitle")
@@ -30,7 +48,6 @@ sap.ui.define([
 				return;
 			}
 
-			// Open the visitor's email app with the enquiry pre-filled.
 			var sCompanyEmail = oResourceBundle.getText("companyContactEmail");
 			var sSubject = oResourceBundle.getText("emailSubject");
 			var sBody = [
@@ -43,10 +60,9 @@ sap.ui.define([
 				oFormData.requirement
 			].join("\n");
 
-			var sMailto = "mailto:" + sCompanyEmail +
+			window.location.href = "mailto:" + sCompanyEmail +
 				"?subject=" + encodeURIComponent(sSubject) +
 				"&body=" + encodeURIComponent(sBody);
-			window.location.href = sMailto;
 
 			MessageBox.information(
 				oResourceBundle.getText("submitInfoMessage", [oFormData.name, sCompanyEmail]),
@@ -62,6 +78,7 @@ sap.ui.define([
 				projectType: "",
 				requirement: ""
 			});
+			this.byId("nameInput").focus();
 		}
 	});
 });

@@ -5,7 +5,7 @@
 	height="100%"
 >
 	<VBox id="appShell" fitContainer="true">
-		<OverflowToolbar id="appShellBar" design="Transparent" width="100%" class="mindtek-shellbar">
+		<OverflowToolbar id="appShellBar" design="Solid" width="100%" class="mindtek-shellbar">
 			<Image id="appShellBarLogoLeft" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome">
 				<layoutData>
 					<OverflowToolbarLayoutData priority="NeverOverflow" />
@@ -39,27 +39,25 @@
 				</layoutData>
 			</Image>
 		</OverflowToolbar>
-		<App id="app">
-			<NavContainer id="appNavContainer" autoFocus="false" afterNavigate=".onAfterNavigate" />
+		<App id="app" class="mindtek-app" afterNavigate=".onAfterNavigate">
+			<layoutData>
+				<FlexItemData growFactor="1" minHeight="0" />
+			</layoutData>
 		</App>
-		<HBox
-			id="cookieBanner"
-			class="mindtek-cookie-banner"
-			visible="false"
-			alignItems="Center"
-			justifyContent="SpaceBetween"
-			wrap="Wrap">
-			<VBox id="cookieBannerTextWrap" class="sapUiTinyMargin" alignItems="Start">
-				<Text id="cookieBannerText" text="{i18n>cookieBannerText}" wrapping="true" />
-			</VBox>
-			<HBox id="cookieBannerActions" class="sapUiTinyMargin" wrap="Wrap">
-				<Button id="cookieBannerAcceptButton" text="{i18n>cookieBannerAccept}" type="Emphasized" press=".onCookieBannerAccept" class="sapUiTinyMarginEnd" />
-				<Button id="cookieBannerPrivacyButton" text="{i18n>cookieBannerPrivacy}" type="Transparent" press=".onCookieBannerPrivacy" />
-			</HBox>
-		</HBox>
-		<Dialog id="privacyDialog" title="{i18n>privacyNoticeTitle}" contentWidth="38rem" resizable="false">
+		<Dialog id="cookieDialog" title="{i18n>privacyNoticeTitle}" type="Message" contentWidth="28rem">
 			<content>
-				<VBox id="privacyDialogContent" class="sapUiMediumMargin">
+				<Text id="cookieDialogText" text="{i18n>cookieBannerText}" wrapping="true" class="sapUiSmallMargin" />
+			</content>
+			<beginButton>
+				<Button id="cookieDialogAcceptButton" text="{i18n>cookieBannerAccept}" type="Emphasized" press=".onCookieDialogAccept" />
+			</beginButton>
+			<endButton>
+				<Button id="cookieDialogPrivacyButton" text="{i18n>cookieBannerPrivacy}" press=".onCookieDialogPrivacy" />
+			</endButton>
+		</Dialog>
+		<Dialog id="privacyDialog" title="{i18n>privacyNoticeTitle}" type="Message" contentWidth="38rem" resizable="false">
+			<content>
+				<VBox id="privacyDialogContent" class="sapUiSmallMargin">
 					<Text id="privacyNoticeText1" text="{i18n>privacyNoticeText1}" wrapping="true" class="sapUiTinyMarginBottom" />
 					<Text id="privacyNoticeText2" text="{i18n>privacyNoticeText2}" wrapping="true" class="sapUiTinyMarginBottom" />
 					<Text id="privacyNoticeText3" text="{i18n>privacyNoticeText3}" wrapping="true" class="sapUiTinyMarginBottom" />

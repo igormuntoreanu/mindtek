@@ -14,38 +14,13 @@ sap.ui.define([
 
 		/**
 		 * Convenience method for getting the i18n resource bundle.
-		 * @returns {Promise<sap.base.i18n.ResourceBundle>} the resource bundle
+		 * @returns {sap.base.i18n.ResourceBundle|Promise<sap.base.i18n.ResourceBundle>} the resource bundle
 		 */
 		getResourceBundle: function () {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
 
-		/**
-		 * UI5 Button `press` is synthesised from tap/mouse sequences and can miss a
-		 * native click on some browsers. Bind click as well, once per control.
-		 * @param {string} sId view-local control id
-		 * @param {Function} fnHandler handler invoked with the controller as `this`
-		 */
-		attachNativeClick: function (sId, fnHandler) {
-			var oControl = this.byId(sId);
-			if (!oControl || oControl.data("nativeClickBound")) {
-				return;
-			}
-			oControl.data("nativeClickBound", true);
-			oControl.attachBrowserEvent("click", fnHandler, this);
-		},
-
 		onNavToHome: function () {
-			// Guard against double navigation (the logo can fire both the Image press
-			// and a native click fallback).
-			if (this._bNavToHomePending) {
-				return;
-			}
-			this._bNavToHomePending = true;
-			var that = this;
-			setTimeout(function () {
-				that._bNavToHomePending = false;
-			}, 300);
 			this.getRouter().navTo("home");
 		},
 

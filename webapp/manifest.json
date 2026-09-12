@@ -63,7 +63,7 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "mindtek.view",
-				"controlId": "appNavContainer",
+				"controlId": "app",
 				"controlAggregation": "pages",
 				"transition": "slide",
 				"async": true
