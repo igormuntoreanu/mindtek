@@ -14,23 +14,13 @@ sap.ui.define([
 
 		/**
 		 * Convenience method for getting the i18n resource bundle.
-		 * @returns {Promise<sap.base.i18n.ResourceBundle>} the resource bundle
+		 * @returns {sap.base.i18n.ResourceBundle|Promise<sap.base.i18n.ResourceBundle>} the resource bundle
 		 */
 		getResourceBundle: function () {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
 
 		onNavToHome: function () {
-			// Guard against double navigation (the logo can fire both the Image press
-			// and a native click fallback).
-			if (this._bNavToHomePending) {
-				return;
-			}
-			this._bNavToHomePending = true;
-			var that = this;
-			setTimeout(function () {
-				that._bNavToHomePending = false;
-			}, 300);
 			this.getRouter().navTo("home");
 		},
 

@@ -3,7 +3,5 @@ sap.ui.define([
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("mindtek.controller.About", {
-		onInit: function () {}
-	});
+	return BaseController.extend("mindtek.controller.About", {});
 });

@@ -5,22 +5,44 @@
 	height="100%"
 >
 	<VBox id="appShell" fitContainer="true">
-		<OverflowToolbar id="appShellBar" design="Transparent" width="100%" class="mindtek-shellbar">
+		<OverflowToolbar id="appShellBar" design="Solid" width="100%" class="mindtek-shellbar">
 			<Image id="appShellBarLogoLeft" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome">
 				<layoutData>
 					<OverflowToolbarLayoutData priority="NeverOverflow" />
 				</layoutData>
 			</Image>
 			<ToolbarSpacer />
-			<Button id="navHomeButton" class="mindtek-nav-btn" text="{i18n>navHome}" type="{= ${nav>/currentRoute} === 'home' ? 'Emphasized' : 'Transparent'}" press=".onNavToHome" />
-			<Button id="navAboutButton" class="mindtek-nav-btn" text="{i18n>navAbout}" type="{= ${nav>/currentRoute} === 'about' ? 'Emphasized' : 'Transparent'}" press=".onNavToAbout" />
-			<Button id="navPortfolioButton" class="mindtek-nav-btn" text="{i18n>navPortfolio}" type="{= ${nav>/currentRoute} === 'portfolio' ? 'Emphasized' : 'Transparent'}" press=".onNavToPortfolio" />
-			<Button id="navContactButton" class="mindtek-nav-btn" text="{i18n>navContact}" type="{= ${nav>/currentRoute} === 'contact' ? 'Emphasized' : 'Transparent'}" press=".onNavToContact" />
+			<Button id="navHomeButton" class="mindtek-nav-btn" text="{i18n>navHome}" type="{= ${nav>/currentRoute} === 'home' ? 'Emphasized' : 'Transparent'}" press=".onNavToHome">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="High" />
+				</layoutData>
+			</Button>
+			<Button id="navAboutButton" class="mindtek-nav-btn" text="{i18n>navAbout}" type="{= ${nav>/currentRoute} === 'about' ? 'Emphasized' : 'Transparent'}" press=".onNavToAbout">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="High" />
+				</layoutData>
+			</Button>
+			<Button id="navPortfolioButton" class="mindtek-nav-btn" text="{i18n>navPortfolio}" type="{= ${nav>/currentRoute} === 'portfolio' ? 'Emphasized' : 'Transparent'}" press=".onNavToPortfolio">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="High" />
+				</layoutData>
+			</Button>
+			<Button id="navContactButton" class="mindtek-nav-btn" text="{i18n>navContact}" type="{= ${nav>/currentRoute} === 'contact' ? 'Emphasized' : 'Transparent'}" press=".onNavToContact">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow" />
+				</layoutData>
+			</Button>
 			<ToolbarSpacer />
-			<Image id="appShellBarLogoRight" class="mindtek-logo-right" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome" />
+			<Image id="appShellBarLogoRight" class="mindtek-logo-right" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="Disappear" />
+				</layoutData>
+			</Image>
 		</OverflowToolbar>
-		<App id="app">
-			<NavContainer id="appNavContainer" />
+		<App id="app" class="mindtek-app" afterNavigate=".onAfterNavigate">
+			<layoutData>
+				<FlexItemData growFactor="1" minHeight="0" />
+			</layoutData>
 		</App>
 		<HBox
 			id="cookieBanner"
@@ -37,9 +59,9 @@
 				<Button id="cookieBannerPrivacyButton" text="{i18n>cookieBannerPrivacy}" type="Transparent" press=".onCookieBannerPrivacy" />
 			</HBox>
 		</HBox>
-		<Dialog id="privacyDialog" title="{i18n>privacyNoticeTitle}" contentWidth="38rem" resizable="false">
+		<Dialog id="privacyDialog" title="{i18n>privacyNoticeTitle}" type="Message" contentWidth="38rem" resizable="false">
 			<content>
-				<VBox id="privacyDialogContent" class="sapUiMediumMargin">
+				<VBox id="privacyDialogContent" class="sapUiSmallMargin">
 					<Text id="privacyNoticeText1" text="{i18n>privacyNoticeText1}" wrapping="true" class="sapUiTinyMarginBottom" />
 					<Text id="privacyNoticeText2" text="{i18n>privacyNoticeText2}" wrapping="true" class="sapUiTinyMarginBottom" />
 					<Text id="privacyNoticeText3" text="{i18n>privacyNoticeText3}" wrapping="true" class="sapUiTinyMarginBottom" />
