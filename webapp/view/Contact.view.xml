@@ -55,8 +55,7 @@
 					<TextArea id="requirementInput" value="{form>/requirement}" rows="4" width="100%" placeholder="{i18n>formRequirementPlaceholder}" />
 				</form:SimpleForm>
 
-				<Text id="privacyNoticeTitleText" text="{i18n>privacyNoticeTitle}: " class="sapUiSmallMarginTop" />
-				<Text id="privacyNoticeText" text="{i18n>contactPrivacyNotice}" />
+				<Text id="privacyNoticeText" text="{i18n>contactPrivacyLine}" class="sapUiSmallMarginTop" wrapping="true" />
 
 				<HBox id="contactEmailRow" class="sapUiTinyMarginTop" wrap="Wrap">
 					<Text id="contactEmailLabelText" text="{i18n>contactEmailLabel}" class="sapUiTinyMarginEnd" />
