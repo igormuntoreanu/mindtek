@@ -26,9 +26,14 @@ sap.ui.define([
 		 */
 		onAfterShow: function () {
 			var oNameInput = this.byId("nameInput");
-			if (oNameInput) {
-				oNameInput.focus();
+			if (!oNameInput) {
+				return;
 			}
+			// After navigation the tapped header button can keep focus; wait
+			// one task so the Name field receives it.
+			setTimeout(function () {
+				oNameInput.focus();
+			}, 0);
 		},
 
 		onSubmitRequest: function () {

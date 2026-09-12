@@ -17,41 +17,41 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function () {
-			this._initCookieDialog();
+			this._initCookieBanner();
 		},
 
 		/**
-		 * Shows cookie consent once per browser unless the user has already
-		 * accepted. The site sets no tracking cookies, so accepting just
+		 * Shows the cookie consent bar once per browser unless the user has
+		 * already accepted. The site sets no tracking cookies, so accepting just
 		 * records the choice in localStorage.
 		 */
-		_initCookieDialog: function () {
-			if (this._bCookieDialogHandled) {
+		_initCookieBanner: function () {
+			if (this._bCookieBannerHandled) {
 				return;
 			}
-			this._bCookieDialogHandled = true;
+			this._bCookieBannerHandled = true;
 
 			var sConsent = null;
 			try {
 				sConsent = window.localStorage.getItem("mindtek_cookie_consent");
 			} catch (e) {
-				// localStorage unavailable - still show the dialog
+				// localStorage unavailable - still show the banner
 			}
 			if (sConsent !== "accepted") {
-				this.byId("cookieDialog").open();
+				this.byId("cookieBanner").setVisible(true);
 			}
 		},
 
-		onCookieDialogAccept: function () {
+		onCookieBannerAccept: function () {
 			try {
 				window.localStorage.setItem("mindtek_cookie_consent", "accepted");
 			} catch (e) {
 				// ignore storage failures
 			}
-			this.byId("cookieDialog").close();
+			this.byId("cookieBanner").setVisible(false);
 		},
 
-		onCookieDialogPrivacy: function () {
+		onCookieBannerPrivacy: function () {
 			this.byId("privacyDialog").open();
 		},
 

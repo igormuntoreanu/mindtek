@@ -50,6 +50,12 @@
 	min-height: 0;
 }
 
+.mindtek-cookie-banner {
+	background: #ffffff;
+	border-top: 1px solid #d9d9d9;
+	flex-shrink: 0;
+}
+
 @media (max-width: 1023px) {
 	.mindtek-logo-right {
 		display: none !important;

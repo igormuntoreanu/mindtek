@@ -44,17 +44,21 @@
 				<FlexItemData growFactor="1" minHeight="0" />
 			</layoutData>
 		</App>
-		<Dialog id="cookieDialog" title="{i18n>privacyNoticeTitle}" type="Message" contentWidth="28rem">
-			<content>
-				<Text id="cookieDialogText" text="{i18n>cookieBannerText}" wrapping="true" class="sapUiSmallMargin" />
-			</content>
-			<beginButton>
-				<Button id="cookieDialogAcceptButton" text="{i18n>cookieBannerAccept}" type="Emphasized" press=".onCookieDialogAccept" />
-			</beginButton>
-			<endButton>
-				<Button id="cookieDialogPrivacyButton" text="{i18n>cookieBannerPrivacy}" press=".onCookieDialogPrivacy" />
-			</endButton>
-		</Dialog>
+		<HBox
+			id="cookieBanner"
+			class="mindtek-cookie-banner"
+			visible="false"
+			alignItems="Center"
+			justifyContent="SpaceBetween"
+			wrap="Wrap">
+			<VBox id="cookieBannerTextWrap" class="sapUiTinyMargin" alignItems="Start">
+				<Text id="cookieBannerText" text="{i18n>cookieBannerText}" wrapping="true" />
+			</VBox>
+			<HBox id="cookieBannerActions" class="sapUiTinyMargin" wrap="Wrap">
+				<Button id="cookieBannerAcceptButton" text="{i18n>cookieBannerAccept}" type="Emphasized" press=".onCookieBannerAccept" class="sapUiTinyMarginEnd" />
+				<Button id="cookieBannerPrivacyButton" text="{i18n>cookieBannerPrivacy}" type="Transparent" press=".onCookieBannerPrivacy" />
+			</HBox>
+		</HBox>
 		<Dialog id="privacyDialog" title="{i18n>privacyNoticeTitle}" type="Message" contentWidth="38rem" resizable="false">
 			<content>
 				<VBox id="privacyDialogContent" class="sapUiSmallMargin">
