@@ -1,0 +1,16 @@
+{
+  "name": "MindTek (OpenUI5)",
+  "install": "npm ci",
+  "terminals": [
+    {
+      "name": "ui5-dev-server",
+      "command": "npx ui5 serve --port 8080"
+    }
+  ],
+  "ports": [
+    {
+      "name": "UI5 dev server",
+      "port": 8080
+    }
+  ]
+}
