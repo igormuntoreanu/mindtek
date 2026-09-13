@@ -5,7 +5,7 @@
 	xmlns:core="sap.ui.core"
 	xmlns:form="sap.ui.layout.form"
 >
-	<Page id="contactPage" showHeader="false" showFooter="true" enableScrolling="true">
+	<Page id="contactPage" showHeader="false" showFooter="false" enableScrolling="true">
 		<content>
 			<VBox id="contactContent" class="mindtek-content">
 			<VBox id="contactHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
@@ -57,22 +57,21 @@
 
 				<Text id="privacyNoticeText" text="{i18n>contactPrivacyLine}" class="sapUiSmallMarginTop" wrapping="true" />
 
-				<HBox id="contactEmailRow" class="sapUiTinyMarginTop" wrap="Wrap">
+				<HBox id="contactEmailRow" class="sapUiTinyMarginTop" wrap="Wrap" alignItems="Center">
 					<Text id="contactEmailLabelText" text="{i18n>contactEmailLabel}" class="sapUiTinyMarginEnd" />
-					<Text id="contactEmailValueText" text="{i18n>companyContactEmail}" />
+					<Link id="contactEmailValueLink" text="{i18n>companyContactEmail}" />
 				</HBox>
+
+				<OverflowToolbar id="contactFormToolbar" class="sapUiMediumMarginTop">
+					<ToolbarSpacer />
+					<Button id="clearFormButton" text="{i18n>formClear}" type="Transparent" press=".onClearForm" />
+					<Button id="submitFormButton" text="{i18n>formSubmit}" type="Emphasized" icon="sap-icon://email" press=".onSubmitRequest" />
+				</OverflowToolbar>
 			</Panel>
 
 			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
 
 			</VBox>
 		</content>
-		<footer>
-			<OverflowToolbar id="contactFormToolbar">
-				<ToolbarSpacer />
-				<Button id="clearFormButton" text="{i18n>formClear}" type="Transparent" press=".onClearForm" />
-				<Button id="submitFormButton" text="{i18n>formSubmit}" type="Emphasized" icon="sap-icon://email" press=".onSubmitRequest" />
-			</OverflowToolbar>
-		</footer>
 	</Page>
 </mvc:View>

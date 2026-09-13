@@ -24,8 +24,12 @@ sap.ui.define([
 			this.getRouter().navTo("home");
 		},
 
+		onNavToWork: function () {
+			this.getRouter().navTo("work");
+		},
+
 		onNavToPortfolio: function () {
-			this.getRouter().navTo("portfolio");
+			this.getRouter().navTo("work");
 		},
 
 		onNavToAbout: function () {
@@ -37,6 +41,7 @@ sap.ui.define([
 		},
 
 		onOpenSocialLink: function (oEvent) {
+			// Placeholder hrefs stay "#" until verified company social URLs exist.
 			var sUrl = oEvent.getSource().data("url");
 			if (sUrl && sUrl !== "#") {
 				window.open(sUrl, "_blank", "noopener,noreferrer");

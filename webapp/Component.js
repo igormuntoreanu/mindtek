@@ -19,6 +19,11 @@ sap.ui.define([
 
 			// initialize the router
 			this.getRouter().initialize();
+
+			// Keep old #/portfolio bookmarks working; replace the hash with #/work.
+			this.getRouter().getRoute("portfolio").attachPatternMatched(function () {
+				this.getRouter().navTo("work", {}, true);
+			}, this);
 		}
 	});
 });

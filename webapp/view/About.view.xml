@@ -43,7 +43,7 @@
 			<Panel id="aboutCtaPanel" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
 				<VBox id="aboutCtaContent" class="sapUiMediumMargin" alignItems="Center">
 					<Text id="aboutClosingText" text="{i18n>companyClosingStatement}" textAlign="Center" />
-					<Button id="aboutCtaButton" text="{i18n>ctaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
+					<Button id="aboutCtaButton" text="{i18n>aboutCtaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
 				</VBox>
 			</Panel>
 

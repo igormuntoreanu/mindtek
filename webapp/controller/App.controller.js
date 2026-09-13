@@ -6,6 +6,8 @@ sap.ui.define([
 
 	return BaseController.extend("mindtek.controller.App", {
 		onInit: function () {
+			this.getView().addStyleClass("sapUiSizeCozy");
+
 			var oNavModel = new JSONModel({
 				currentRoute: "home"
 			});
