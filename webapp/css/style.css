@@ -1,3 +1,4 @@
+/* Brand hero only — section layouts use standard sap.ui.layout.Grid / sap.m spacing. */
 .mindtek-hero {
 	background: linear-gradient(135deg, #0A6ED1 0%, #4A9FE8 100%);
 	border-radius: 0.75rem;
@@ -37,7 +38,7 @@
 	height: 100%;
 }
 
-/* Portfolio tiles are square */
+/* Work tiles are square */
 .sapFGLI {
 	aspect-ratio: 1 / 1;
 }
@@ -56,31 +57,6 @@
 	flex-shrink: 0;
 }
 
-@media (max-width: 1023px) {
-	.mindtek-logo-right {
-		display: none !important;
-	}
-}
-
-.mindtek-cards {
-	display: flex;
-	flex-wrap: wrap;
-	margin: -0.5rem;
-}
-
-.mindtek-cards > .sapMFlexItem {
-	flex: 1 1 30% !important;
-	min-width: 16rem !important;
-	margin: 0.5rem;
-	box-sizing: border-box;
-}
-
 .mindtek-card {
 	height: 100%;
-}
-
-/* Four process cards sit in one row on desktop, then wrap 2×2 / stacked. */
-.mindtek-cards-steps > .sapMFlexItem {
-	flex: 1 1 21% !important;
-	min-width: 12.5rem !important;
 }

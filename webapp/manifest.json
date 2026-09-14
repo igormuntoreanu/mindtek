@@ -80,9 +80,14 @@
 					"target": "about"
 				},
 				{
+					"pattern": "work",
+					"name": "work",
+					"target": "work"
+				},
+				{
 					"pattern": "portfolio",
 					"name": "portfolio",
-					"target": "portfolio"
+					"target": "work"
 				},
 				{
 					"pattern": "contact",
@@ -99,7 +104,7 @@
 					"viewName": "About",
 					"viewLevel": 1
 				},
-				"portfolio": {
+				"work": {
 					"viewName": "Portfolio",
 					"viewLevel": 1
 				},

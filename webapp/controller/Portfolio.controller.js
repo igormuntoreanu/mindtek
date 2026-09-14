@@ -67,7 +67,7 @@ sap.ui.define([
 		},
 
 		/**
-		 * Show the Portfolio intro first. GridList otherwise focuses the first
+		 * Show the Work intro first. GridList otherwise focuses the first
 		 * tile and the page heading scrolls out of view.
 		 */
 		onPortfolioShown: function () {

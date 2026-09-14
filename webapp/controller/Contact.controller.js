@@ -19,6 +19,18 @@ sap.ui.define([
 			this.byId("contactPage").addEventDelegate({
 				onAfterShow: this.onAfterShow
 			}, this);
+
+			this._bindContactEmailLink();
+		},
+
+		_bindContactEmailLink: function () {
+			var oLink = this.byId("contactEmailValueLink");
+			Promise.resolve(this.getResourceBundle()).then(function (oResourceBundle) {
+				var sEmail = oResourceBundle.getText("companyContactEmail");
+				if (oLink && sEmail) {
+					oLink.setHref("mailto:" + sEmail);
+				}
+			});
 		},
 
 		onContactMatched: function () {

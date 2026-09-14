@@ -10,8 +10,8 @@
 		<content>
 			<VBox id="portfolioContent" class="mindtek-content">
 				<VBox id="portfolioHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-					<Title id="portfolioPageTitle" text="{i18n>portfolioTitle}" titleStyle="H2" />
-					<Text id="portfolioPageSubtitle" text="{i18n>portfolioSubtitle}" class="sapUiTinyMarginTop" />
+					<Title id="portfolioPageTitle" text="{i18n>workTitle}" titleStyle="H2" />
+					<Text id="portfolioPageSubtitle" text="{i18n>workSubtitle}" class="sapUiTinyMarginTop" />
 				</VBox>
 
 				<f:GridList
