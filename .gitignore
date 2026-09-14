@@ -19,6 +19,10 @@ lerna-debug.log*
 /logos/
 /favicon/
 
+# CVs are reference only. Do not publish personal contact details.
+webapp/assets/people/*.pdf
+webapp/assets/people/_cv_preview/
+
 # --- Editors / IDEs ---
 .vscode/
 .idea/

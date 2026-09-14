@@ -25,7 +25,12 @@
 				<OverflowToolbarLayoutData priority="Low" />
 			</layoutData>
 		</Button>
-		<Button text="{i18n>navContact}" type="{= ${nav>/currentRoute} === 'contact' ? 'Emphasized' : 'Transparent'}" press=".onNavToContact">
+		<Button text="{i18n>navPeople}" type="{= ${nav>/currentRoute} === 'people' ? 'Emphasized' : 'Transparent'}" press=".onNavToPeople">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low" />
+			</layoutData>
+		</Button>
+		<Button text="{i18n>navContact}" type="Emphasized" press=".onNavToContact">
 			<layoutData>
 				<OverflowToolbarLayoutData priority="High" />
 			</layoutData>

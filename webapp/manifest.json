@@ -80,6 +80,11 @@
 					"target": "about"
 				},
 				{
+					"pattern": "people",
+					"name": "people",
+					"target": "people"
+				},
+				{
 					"pattern": "work",
 					"name": "work",
 					"target": "work"
@@ -102,6 +107,10 @@
 				},
 				"about": {
 					"viewName": "About",
+					"viewLevel": 1
+				},
+				"people": {
+					"viewName": "People",
 					"viewLevel": 1
 				},
 				"work": {

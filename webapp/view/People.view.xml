@@ -1,0 +1,27 @@
+<mvc:View
+	controllerName="mindtek.controller.People"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+>
+	<Page id="peoplePage" showHeader="false" showFooter="false" enableScrolling="true">
+		<content>
+			<VBox id="peopleContent" class="mindtek-content">
+				<VBox id="peopleHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+					<Title id="peoplePageTitleText" text="{i18n>peopleTitle}" titleStyle="H2" />
+					<Text id="peoplePageSubtitleText" text="{i18n>peopleSubtitle}" class="sapUiTinyMarginTop" />
+				</VBox>
+				<VBox id="peopleCardsWrap" class="sapUiResponsiveMargin">
+					<core:Fragment fragmentName="mindtek.view.fragment.PeopleCards" type="XML" />
+				</VBox>
+				<Panel id="peopleCtaPanel" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
+					<VBox id="peopleCtaContent" class="sapUiMediumMargin" alignItems="Center">
+						<Title id="peopleCtaTitle" text="{i18n>ctaTitle}" titleStyle="H3" wrapping="true" textAlign="Center" />
+						<Button id="peopleCtaButton" text="{i18n>ctaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
+					</VBox>
+				</Panel>
+				<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

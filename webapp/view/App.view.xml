@@ -22,17 +22,17 @@
 					<OverflowToolbarLayoutData priority="High" />
 				</layoutData>
 			</Button>
+			<Button id="navPeopleButton" text="{i18n>navPeople}" type="{= ${nav>/currentRoute} === 'people' ? 'Emphasized' : 'Transparent'}" press=".onNavToPeople">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="High" />
+				</layoutData>
+			</Button>
 			<Button id="navWorkButton" text="{i18n>navWork}" type="{= ${nav>/currentRoute} === 'work' || ${nav>/currentRoute} === 'portfolio' ? 'Emphasized' : 'Transparent'}" press=".onNavToWork">
 				<layoutData>
 					<OverflowToolbarLayoutData priority="High" />
 				</layoutData>
 			</Button>
-			<Button id="navContactButton" text="{i18n>navContact}" type="{= ${nav>/currentRoute} === 'contact' ? 'Emphasized' : 'Transparent'}" press=".onNavToContact">
-				<layoutData>
-					<OverflowToolbarLayoutData priority="High" />
-				</layoutData>
-			</Button>
-			<Button id="headerCtaButton" text="{i18n>headerCtaButton}" type="{= ${nav>/currentRoute} === 'contact' ? 'Default' : 'Emphasized'}" press=".onNavToContact">
+			<Button id="headerCtaButton" text="{i18n>headerCtaButton}" type="Emphasized" press=".onNavToContact">
 				<layoutData>
 					<OverflowToolbarLayoutData priority="NeverOverflow" />
 				</layoutData>

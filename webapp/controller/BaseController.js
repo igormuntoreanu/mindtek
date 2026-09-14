@@ -36,6 +36,10 @@ sap.ui.define([
 			this.getRouter().navTo("about");
 		},
 
+		onNavToPeople: function () {
+			this.getRouter().navTo("people");
+		},
+
 		onNavToContact: function () {
 			this.getRouter().navTo("contact");
 		},

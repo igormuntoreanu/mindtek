@@ -1,0 +1,44 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:l="sap.ui.layout"
+>
+	<l:Grid id="peopleGrid" defaultSpan="XL6 L6 M12 S12" class="sapUiSmallMarginTop mindtek-card-grid" hSpacing="1" vSpacing="1">
+		<f:Card id="personCard1" class="mindtek-card mindtek-people-card">
+			<f:header>
+				<card:Header
+					title="{i18n>person1Name}"
+					subtitle="{i18n>person1Role}"
+					iconSrc="assets/people/mindtek-igor-muntoreanu.jpg"
+					iconDisplayShape="Square"
+					iconSize="XL"
+				/>
+			</f:header>
+			<f:content>
+				<VBox id="personCard1Content" class="sapUiSmallMargin">
+					<Text id="person1Bio" text="{i18n>person1Bio}" wrapping="true" />
+					<Text id="person1Focus" text="{i18n>person1Focus}" wrapping="true" class="sapUiSmallMarginTop sapUiTinyMarginBottom" />
+				</VBox>
+			</f:content>
+		</f:Card>
+		<f:Card id="personCard2" class="mindtek-card mindtek-people-card">
+			<f:header>
+				<card:Header
+					title="{i18n>person2Name}"
+					subtitle="{i18n>person2Role}"
+					iconSrc="assets/people/mindtek-neska-braga.jpg"
+					iconDisplayShape="Square"
+					iconSize="XL"
+				/>
+			</f:header>
+			<f:content>
+				<VBox id="personCard2Content" class="sapUiSmallMargin">
+					<Text id="person2Bio" text="{i18n>person2Bio}" wrapping="true" />
+					<Text id="person2Focus" text="{i18n>person2Focus}" wrapping="true" class="sapUiSmallMarginTop sapUiTinyMarginBottom" />
+				</VBox>
+			</f:content>
+		</f:Card>
+	</l:Grid>
+</core:FragmentDefinition>
