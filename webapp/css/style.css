@@ -92,3 +92,14 @@
 	overflow: visible;
 	text-overflow: clip;
 }
+
+/* Keep faces in the square avatar; Cover otherwise clips the top of the head. */
+.mindtek-people-card .sapFAvatarImage {
+	background-size: cover;
+	background-position: top center;
+}
+.mindtek-people-card .sapFAvatar img,
+.mindtek-people-card .sapFCardHeaderImage img {
+	object-fit: cover;
+	object-position: top center;
+}
