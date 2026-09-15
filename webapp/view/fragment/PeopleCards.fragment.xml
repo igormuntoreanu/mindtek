@@ -28,7 +28,7 @@
 				<card:Header
 					title="{i18n>person2Name}"
 					subtitle="{i18n>person2Role}"
-					iconSrc="assets/people/mindtek-neska-braga.jpg"
+					iconSrc="assets/people/mindtek-neska-braga.jpg?v=2"
 					iconDisplayShape="Square"
 					iconSize="XL"
 				/>
