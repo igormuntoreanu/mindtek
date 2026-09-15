@@ -12,19 +12,19 @@ sap.ui.define([
 
 			var oData = {
 				selected: {
-					key: "lrop",
-					title: "Travel Management",
+					key: "jem",
+					title: "Journal Entry Monitor",
 					floorplan: "List Report Object Page",
-					icon: "sap-icon://table-view",
-					description: "A Fiori List Report and Object Page showcasing list-detail patterns, search, filters and navigation."
+					icon: "sap-icon://accounting-document-verification",
+					description: "A Fiori List Report for monitoring SAP journal entries: company code, fiscal year, posting date, document status, filters and list-to-detail navigation."
 				},
 				apps: [
 					{
-						key: "lrop",
-						title: "Travel Management",
+						key: "jem",
+						title: "Journal Entry Monitor",
 						floorplan: "List Report Object Page",
-						icon: "sap-icon://table-view",
-						description: "A Fiori List Report and Object Page showcasing list-detail patterns, search, filters and navigation."
+						icon: "sap-icon://accounting-document-verification",
+						description: "A Fiori List Report for monitoring SAP journal entries: company code, fiscal year, posting date, document status, filters and list-to-detail navigation."
 					},
 					{
 						key: "ovp",
