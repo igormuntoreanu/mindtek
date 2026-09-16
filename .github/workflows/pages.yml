@@ -1,4 +1,4 @@
-﻿# Showcase apps copied from mindtek-journalentry-monitor and mindtek-journalentry-monitor-alp.
+﻿# Showcase apps copied from mindtek-journalentry-monitor and mindtek-journalentry-monitor-alp (logo + Excel export).
 name: Deploy to GitHub Pages
 on:
   push:
