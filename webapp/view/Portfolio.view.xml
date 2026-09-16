@@ -44,10 +44,18 @@
 								<ObjectAttribute id="portfolioDetailAttribute" text="{portfolio>/selected/description}" />
 							</attributes>
 							<statuses>
-								<ObjectStatus id="portfolioDetailStatus" text="{i18n>portfolioComingSoon}" state="Information" />
+								<ObjectStatus
+									id="portfolioDetailStatus"
+									text="{= ${portfolio>/selected/url} ? ${i18n>portfolioLive} : ${i18n>portfolioComingSoon} }"
+									state="{= ${portfolio>/selected/url} ? 'Success' : 'Information' }" />
 							</statuses>
 						</ObjectHeader>
-						<Button id="portfolioDetailButton" text="{i18n>portfolioButton}" type="Emphasized" press=".onNavToContact" class="sapUiSmallMarginTop" />
+						<Button
+							id="portfolioDetailButton"
+							text="{= ${portfolio>/selected/url} ? ${i18n>portfolioOpenApp} : ${i18n>portfolioButton} }"
+							type="Emphasized"
+							press=".onPortfolioAction"
+							class="sapUiSmallMarginTop" />
 					</VBox>
 				</Panel>
 
