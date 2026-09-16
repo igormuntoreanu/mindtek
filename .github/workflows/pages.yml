@@ -1,4 +1,4 @@
-﻿# Showcase apps copied from mindtek-journalentry-monitor and mindtek-journalentry-monitor-alp (logo + Excel export).
+﻿# Showcase apps copied from mindtek-journalentry-monitor and mindtek-journalentry-monitor-alp (favicon-180x180).
 name: Deploy to GitHub Pages
 on:
   push:
