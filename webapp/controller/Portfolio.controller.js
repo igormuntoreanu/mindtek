@@ -36,10 +36,20 @@ sap.ui.define([
 				url: sListReportUrl
 			};
 
+			var oJemAlp = {
+				key: "alp",
+				title: "Journal Entry Monitor",
+				floorplan: "Analytical List Page + Object Page",
+				icon: "sap-icon://bar-chart",
+				description: "The Analytical List Page variant of the journal entry monitor, with KPIs, a chart and a table over the same SAP universal journal line items.",
+				url: sAlpUrl
+			};
+
 			var oData = {
 				selected: oJem,
 				apps: [
 					oJem,
+					oJemAlp,
 					{
 						key: "ovp",
 						title: "Sales Overview",
@@ -47,14 +57,6 @@ sap.ui.define([
 						icon: "sap-icon://overview-chart",
 						description: "An Overview Page with cards and analytical tiles summarising key sales KPIs at a glance.",
 						url: ""
-					},
-					{
-						key: "alp",
-						title: "Journal Entry Monitor",
-						floorplan: "Analytical List Page + Object Page",
-						icon: "sap-icon://bar-chart",
-						description: "The Analytical List Page variant of the journal entry monitor, with KPIs, a chart and a table over the same SAP universal journal line items.",
-						url: sAlpUrl
 					},
 					{
 						key: "worklist",
