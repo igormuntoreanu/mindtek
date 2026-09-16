@@ -20,11 +20,11 @@ sap.ui.define([
 
 			var sListReportUrl = this._showcaseUrl(
 				"http://localhost:8081/index.html",
-				"https://igormuntoreanu.github.io/mindtek-journalentry-monitor/"
+				"https://mindtek-ltd.com/journalentry-monitor/"
 			);
 			var sAlpUrl = this._showcaseUrl(
 				"http://localhost:8082/index.html",
-				"https://igormuntoreanu.github.io/mindtek-journalentry-monitor-alp/"
+				"https://mindtek-ltd.com/journalentry-monitor-alp/"
 			);
 
 			var oJem = {
