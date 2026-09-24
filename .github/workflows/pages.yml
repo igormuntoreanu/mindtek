@@ -39,7 +39,7 @@ jobs:
           cp -a vendor/journalentry-monitor/webapp/. dist/journalentry-monitor/
           cp -a vendor/journalentry-monitor-alp/webapp/. dist/journalentry-monitor-alp/
           cp -a vendor/sales-overview/webapp/. dist/sales-overview/
-          touch dist/sales-overview/.nojekyll/
+          touch dist/sales-overview/.nojekyll
           echo "mindtek-ltd.com" > dist/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
