@@ -1,4 +1,4 @@
-﻿# Showcase apps copied from mindtek-journalentry-monitor and mindtek-journalentry-monitor-alp (tab favicons).
+﻿# Showcase apps copied from the journal and sales overview repositories (tab favicons).
 name: Deploy to GitHub Pages
 on:
   push:
@@ -24,6 +24,10 @@ jobs:
         with:
           repository: igormuntoreanu/mindtek-journalentry-monitor-alp
           path: vendor/journalentry-monitor-alp
+      - uses: actions/checkout@v4
+        with:
+          repository: igormuntoreanu/mindtek-sales-overview
+          path: vendor/sales-overview
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -31,9 +35,11 @@ jobs:
       - run: npm run build
       - name: Add showcase apps and custom domain
         run: |
-          mkdir -p dist/journalentry-monitor dist/journalentry-monitor-alp
+          mkdir -p dist/journalentry-monitor dist/journalentry-monitor-alp dist/sales-overview
           cp -a vendor/journalentry-monitor/webapp/. dist/journalentry-monitor/
           cp -a vendor/journalentry-monitor-alp/webapp/. dist/journalentry-monitor-alp/
+          cp -a vendor/sales-overview/webapp/. dist/sales-overview/
+          touch dist/sales-overview/.nojekyll/
           echo "mindtek-ltd.com" > dist/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:

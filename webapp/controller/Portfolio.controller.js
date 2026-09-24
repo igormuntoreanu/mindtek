@@ -26,6 +26,10 @@ sap.ui.define([
 				"http://localhost:8082/index.html",
 				"https://mindtek-ltd.com/journalentry-monitor-alp/"
 			);
+			var sSalesOverviewUrl = this._showcaseUrl(
+				"http://localhost:8083/index.html",
+				"https://mindtek-ltd.com/sales-overview/"
+			);
 
 			var oJem = {
 				key: "jem",
@@ -55,8 +59,8 @@ sap.ui.define([
 						title: "Sales Overview",
 						floorplan: "Overview Page",
 						icon: "sap-icon://overview-chart",
-						description: "An Overview Page with cards and analytical tiles summarising key sales KPIs at a glance.",
-						url: ""
+						description: "An Overview Page for Helvetia Motion AG sales: quotation, order, delivery, billing and the accounting document flow.",
+						url: sSalesOverviewUrl
 					},
 					{
 						key: "worklist",
