@@ -46,7 +46,6 @@
 		<HBox
 			id="cookieBanner"
 			class="mindtek-cookie-banner"
-			visible="false"
 			alignItems="Center"
 			wrap="Wrap">
 			<VBox id="cookieBannerTextWrap" class="mindtek-cookie-text" alignItems="Start">
