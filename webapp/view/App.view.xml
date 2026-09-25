@@ -38,7 +38,7 @@
 				</layoutData>
 			</Button>
 		</OverflowToolbar>
-		<App id="app" class="mindtek-app" afterNavigate=".onAfterNavigate">
+		<App id="app" class="mindtek-app" autoFocus="false" afterNavigate=".onAfterNavigate">
 			<layoutData>
 				<FlexItemData growFactor="1" minHeight="0" />
 			</layoutData>
