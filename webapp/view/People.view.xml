@@ -8,7 +8,7 @@
 		<content>
 			<VBox id="peopleContent" class="mindtek-content">
 				<VBox id="peopleHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-					<Title id="peoplePageTitleText" text="{i18n>peopleTitle}" titleStyle="H2" />
+					<Title id="peoplePageTitleText" text="{i18n>peopleTitle}" level="H1" titleStyle="H1" />
 					<Text id="peoplePageSubtitleText" text="{i18n>peopleSubtitle}" class="sapUiTinyMarginTop" />
 				</VBox>
 				<VBox id="peopleCardsWrap" class="sapUiResponsiveMargin">

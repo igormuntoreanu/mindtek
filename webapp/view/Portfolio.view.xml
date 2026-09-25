@@ -10,7 +10,7 @@
 		<content>
 			<VBox id="portfolioContent" class="mindtek-content">
 				<VBox id="portfolioHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-					<Title id="portfolioPageTitle" text="{i18n>workTitle}" titleStyle="H2" />
+					<Title id="portfolioPageTitle" text="{i18n>workTitle}" level="H1" titleStyle="H1" />
 					<Text id="portfolioPageSubtitle" text="{i18n>workSubtitle}" class="sapUiTinyMarginTop" />
 				</VBox>
 

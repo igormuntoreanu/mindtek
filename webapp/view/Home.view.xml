@@ -12,7 +12,7 @@
 			<VBox id="homeContent" class="mindtek-content">
 			<!-- Hero: outcome + one primary CTA + secondary -->
 			<VBox id="homeHero" class="sapUiResponsiveMargin sapUiLargeMarginTop mindtek-hero" alignItems="Center">
-				<Title id="heroTitle" text="{i18n>companyHeroTitle}" titleStyle="H1" textAlign="Center" wrapping="true" width="100%" />
+				<Title id="heroTitle" text="{i18n>companyHeroTitle}" level="H1" titleStyle="H1" textAlign="Center" wrapping="true" width="100%" />
 				<Text id="heroText" text="{i18n>companyHeroText}" textAlign="Center" class="sapUiSmallMarginTop" />
 				<HBox id="heroActions" class="sapUiMediumMarginTop" justifyContent="Center" wrap="Wrap">
 					<Button id="heroDiscussButton" text="{i18n>headerCtaButton}" type="Emphasized" press=".onNavToContact" class="sapUiTinyMarginEnd" />
@@ -59,7 +59,7 @@
 
 			<!-- Services: all six offerings visible. Collapsing QA/delivery hid half the catalogue. -->
 			<VBox id="servicesSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="servicesTitle" text="{i18n>servicesGlanceTitle}" titleStyle="H2" />
+				<Title id="servicesTitle" text="{i18n>servicesGlanceTitle}" level="H2" titleStyle="H2" />
 				<Text id="servicesSubtitle" text="{i18n>servicesGlanceSubtitle}" class="sapUiTinyMarginTop" />
 				<l:Grid id="servicesGrid" defaultSpan="XL4 L4 M6 S12" class="sapUiSmallMarginTop mindtek-card-grid" hSpacing="1" vSpacing="1">
 					<f:Card id="serviceCard1" class="mindtek-card">
@@ -115,7 +115,7 @@
 
 			<!-- Ways to engage: differentiator, kept distinct from How we work -->
 			<VBox id="engagementSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="engagementTitle" text="{i18n>engagementModelsHomeTitle}" titleStyle="H2" />
+				<Title id="engagementTitle" text="{i18n>engagementModelsHomeTitle}" level="H2" titleStyle="H2" />
 				<l:Grid id="engagementGrid" defaultSpan="XL4 L4 M6 S12" class="sapUiSmallMarginTop mindtek-card-grid" hSpacing="1" vSpacing="1">
 					<f:Card id="engagementCard1" class="mindtek-card">
 						<f:header>
@@ -146,7 +146,7 @@
 
 			<!-- How we work: compact strip, not another card deck -->
 			<VBox id="approachSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="approachTitle" text="{i18n>howWeWorkTitle}" titleStyle="H2" />
+				<Title id="approachTitle" text="{i18n>howWeWorkTitle}" level="H2" titleStyle="H2" />
 				<Text id="approachSubtitle" text="{i18n>howWeWorkSubtitle}" class="sapUiTinyMarginTop" />
 				<List id="approachList" class="sapUiSmallMarginTop mindtek-approach-list">
 					<StandardListItem id="approachItem1" title="{i18n>approach1Title}" description="{i18n>approach1Description}" icon="{i18n>approach1Icon}" info="{i18n>approach1Subtitle}" infoState="Information" infoStateInverted="true" wrapping="true" wrappingType="Normal" />
@@ -158,7 +158,7 @@
 
 			<!-- Our People: directors you actually work with -->
 			<VBox id="peopleSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="peopleTitle" text="{i18n>peopleTitle}" titleStyle="H2" />
+				<Title id="peopleTitle" text="{i18n>peopleTitle}" level="H2" titleStyle="H2" />
 				<Text id="peopleSubtitle" text="{i18n>peopleSubtitle}" class="sapUiTinyMarginTop" />
 				<core:Fragment fragmentName="mindtek.view.fragment.PeopleCards" type="XML" />
 			</VBox>
