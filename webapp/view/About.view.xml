@@ -8,7 +8,7 @@
 		<content>
 			<VBox id="aboutContent" class="mindtek-content">
 			<VBox id="aboutHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="aboutPageTitleText" text="{i18n>aboutPageTitle}" titleStyle="H2" />
+				<Title id="aboutPageTitleText" text="{i18n>aboutPageTitle}" level="H1" titleStyle="H1" />
 				<Text id="aboutPageSubtitleText" text="{i18n>aboutPageSubtitle}" class="sapUiTinyMarginTop" />
 			</VBox>
 

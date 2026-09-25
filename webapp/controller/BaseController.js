@@ -44,6 +44,18 @@ sap.ui.define([
 			this.getRouter().navTo("contact");
 		},
 
+		/**
+		 * Footer links use real hrefs so a crawler can follow them. In the
+		 * app, stay on the current page and let the router change the view.
+		 */
+		onSeoNav: function (oEvent) {
+			oEvent.preventDefault();
+			var sRoute = oEvent.getSource().data("route");
+			if (sRoute) {
+				this.getRouter().navTo(sRoute);
+			}
+		},
+
 		onOpenSocialLink: function (oEvent) {
 			// Placeholder hrefs stay "#" until verified company social URLs exist.
 			var sUrl = oEvent.getSource().data("url");

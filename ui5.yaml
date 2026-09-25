@@ -13,8 +13,19 @@ framework:
     - name: themelib_sap_horizon
 server:
   customMiddleware:
+    - name: serve-spa
+      beforeMiddleware: compression
     - name: ui5-middleware-livereload
       afterMiddleware: compression
       configuration:
         extraExts: "xml,json,properties,jpg,png,jpeg"
         watchPath: "webapp"
+
+---
+specVersion: "3.0"
+kind: extension
+type: server-middleware
+metadata:
+  name: serve-spa
+middleware:
+  path: middleware/serveSpa.js
