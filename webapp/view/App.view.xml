@@ -48,14 +48,13 @@
 			class="mindtek-cookie-banner"
 			visible="false"
 			alignItems="Center"
-			justifyContent="SpaceBetween"
 			wrap="Wrap">
-			<VBox id="cookieBannerTextWrap" class="sapUiTinyMargin" alignItems="Start">
+			<VBox id="cookieBannerTextWrap" class="mindtek-cookie-text" alignItems="Start">
 				<Text id="cookieBannerText" text="{i18n>cookieBannerText}" wrapping="true" />
 			</VBox>
-			<HBox id="cookieBannerActions" class="sapUiTinyMargin" wrap="Wrap">
-				<Button id="cookieBannerAcceptButton" text="{i18n>cookieBannerAccept}" type="Emphasized" press=".onCookieBannerAccept" class="sapUiTinyMarginEnd" />
-				<Button id="cookieBannerPrivacyButton" text="{i18n>cookieBannerPrivacy}" type="Transparent" press=".onCookieBannerPrivacy" />
+			<HBox id="cookieBannerActions" class="mindtek-cookie-actions" alignItems="Center">
+				<Button id="cookieBannerPrivacyButton" text="{i18n>cookieBannerPrivacy}" type="Default" press=".onCookieBannerPrivacy" />
+				<Button id="cookieBannerAcceptButton" text="{i18n>cookieBannerAccept}" type="Emphasized" press=".onCookieBannerAccept" />
 			</HBox>
 		</HBox>
 		<Dialog id="privacyDialog" title="{i18n>privacyNoticeTitle}" type="Message" contentWidth="38rem" resizable="false">
