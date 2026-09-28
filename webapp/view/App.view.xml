@@ -5,7 +5,20 @@
 	height="100%"
 >
 	<VBox id="appShell" fitContainer="true">
-		<OverflowToolbar id="appShellBar" design="Solid" width="100%" class="mindtek-shellbar">
+		<!-- Phone: every nav button stays in the header. OverflowToolbar would move Work into the three-dot menu. -->
+		<VBox id="appShellBarPhone" width="100%" class="mindtek-shellbar sapUiVisibleOnlyOnPhone">
+			<HBox id="appShellPhoneLogoRow" alignItems="Center" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+				<Image id="appShellBarLogoPhone" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome" />
+			</HBox>
+			<HBox id="appShellPhoneNav" wrap="Wrap" alignItems="Center" gap="0.25rem" class="sapUiTinyMarginBeginEnd sapUiTinyMarginBottom">
+				<Button id="navHomeButtonPhone" text="{i18n>navHome}" type="{= ${nav>/currentRoute} === 'home' ? 'Emphasized' : 'Transparent'}" press=".onNavToHome" />
+				<Button id="navAboutButtonPhone" text="{i18n>navAbout}" type="{= ${nav>/currentRoute} === 'about' ? 'Emphasized' : 'Transparent'}" press=".onNavToAbout" />
+				<Button id="navPeopleButtonPhone" text="{i18n>navPeople}" type="{= ${nav>/currentRoute} === 'people' ? 'Emphasized' : 'Transparent'}" press=".onNavToPeople" />
+				<Button id="navWorkButtonPhone" text="{i18n>navWork}" type="{= ${nav>/currentRoute} === 'work' || ${nav>/currentRoute} === 'portfolio' ? 'Emphasized' : 'Transparent'}" press=".onNavToWork" />
+				<Button id="headerCtaButtonPhone" text="{i18n>headerCtaButton}" type="Emphasized" press=".onNavToContact" />
+			</HBox>
+		</VBox>
+		<OverflowToolbar id="appShellBar" design="Solid" width="100%" class="mindtek-shellbar sapUiHideOnPhone">
 			<Image id="appShellBarLogo" src="assets/mindtek-logo-white.jpeg" height="2.5rem" densityAware="false" decorative="false" alt="MindTek logo" press=".onNavToHome">
 				<layoutData>
 					<OverflowToolbarLayoutData priority="NeverOverflow" />
