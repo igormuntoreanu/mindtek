@@ -30,6 +30,10 @@ sap.ui.define([
 				"http://localhost:8083/index.html",
 				"https://mindtek-ltd.com/sales-overview/"
 			);
+			var sApprovalsUrl = this._showcaseUrl(
+				"http://localhost:8084/index.html",
+				"https://mindtek-ltd.com/purchaseorder-worklist/"
+			);
 
 			var oJem = {
 				key: "jem",
@@ -67,8 +71,8 @@ sap.ui.define([
 						title: "Approvals Worklist",
 						floorplan: "Worklist",
 						icon: "sap-icon://approvals",
-						description: "A Worklist floorplan for processing and approving pending tasks in one place.",
-						url: ""
+						description: "A Fiori elements Worklist for approving purchase orders: pending items by urgency, a detailed Object Page, and approve or reject with a reason and audit trail.",
+						url: sApprovalsUrl
 					},
 					{
 						key: "freestyle",

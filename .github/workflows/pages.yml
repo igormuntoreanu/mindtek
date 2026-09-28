@@ -1,4 +1,4 @@
-﻿# Showcase apps copied from the journal and sales overview repositories (tab favicons).
+﻿# Showcase apps copied from the journal, sales overview and purchase order worklist repositories (tab favicons).
 name: Deploy to GitHub Pages
 on:
   push:
@@ -28,6 +28,10 @@ jobs:
         with:
           repository: igormuntoreanu/mindtek-sales-overview
           path: vendor/sales-overview
+      - uses: actions/checkout@v4
+        with:
+          repository: igormuntoreanu/mindtek-purchaseorder-worklist
+          path: vendor/purchaseorder-worklist
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -35,10 +39,11 @@ jobs:
       - run: npm run build
       - name: Add showcase apps and custom domain
         run: |
-          mkdir -p dist/journalentry-monitor dist/journalentry-monitor-alp dist/sales-overview
+          mkdir -p dist/journalentry-monitor dist/journalentry-monitor-alp dist/sales-overview dist/purchaseorder-worklist
           cp -a vendor/journalentry-monitor/webapp/. dist/journalentry-monitor/
           cp -a vendor/journalentry-monitor-alp/webapp/. dist/journalentry-monitor-alp/
           cp -a vendor/sales-overview/webapp/. dist/sales-overview/
+          cp -a vendor/purchaseorder-worklist/webapp/. dist/purchaseorder-worklist/
           touch dist/sales-overview/.nojekyll
           echo "mindtek-ltd.com" > dist/CNAME
       - uses: actions/upload-pages-artifact@v3
