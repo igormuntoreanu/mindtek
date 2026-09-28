@@ -35,6 +35,23 @@
 	border-bottom: 1px solid #d9d9d9;
 }
 
+/* Phone: keep logo and nav on one row. Slightly tighter buttons so Work is not pushed into the overflow menu. */
+@media (max-width: 599px) {
+	.mindtek-shellbar .sapMBtnInner {
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
+		min-width: 0;
+	}
+
+	.mindtek-shellbar .sapMBtnContent {
+		font-size: 0.8125rem;
+	}
+
+	.mindtek-shellbar .sapMImg {
+		height: 1.75rem !important;
+	}
+}
+
 .mindtek-app {
 	min-height: 0;
 }
