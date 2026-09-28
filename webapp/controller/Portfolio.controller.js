@@ -68,7 +68,7 @@ sap.ui.define([
 					},
 					{
 						key: "worklist",
-						title: "Approvals Worklist",
+						title: "Purchase Approval Worklist",
 						floorplan: "Worklist",
 						icon: "sap-icon://approvals",
 						description: "A Fiori elements Worklist for approving purchase orders: pending items by urgency, a detailed Object Page, and approve or reject with a reason and audit trail.",
