@@ -59,8 +59,7 @@ sap.ui.define([
 		},
 
 		/**
-		 * Keep each page at the top after navigation so a GridList tile
-		 * cannot hide the page heading.
+		 * Keep each page at the top after navigation so the page heading stays in view.
 		 */
 		onAfterNavigate: function (oEvent) {
 			var oTo = oEvent.getParameter("to");

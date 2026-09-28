@@ -18,29 +18,10 @@
 	box-sizing: border-box;
 }
 
-.mindtek-tile {
-	height: 100%;
-	width: 100%;
-	min-height: 9rem;
-	padding: 0.5rem;
-	box-sizing: border-box;
-}
-
 .mindtek-client-logo {
 	width: 8rem;
 	height: 4rem;
 	object-fit: contain;
-}
-
-/* Make the tile content fill the whole tile so the icon/title/text centre vertically */
-.sapFGLI .sapFGLIWrapper,
-.sapFGLI .sapMLIBContent {
-	height: 100%;
-}
-
-/* Work tiles are square */
-.sapFGLI {
-	aspect-ratio: 1 / 1;
 }
 
 /* 100% is the large layout viewport. On a phone that puts the privacy bar

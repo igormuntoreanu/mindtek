@@ -1,7 +1,9 @@
 sap.ui.define([
 	"./BaseController",
-	"sap/ui/model/json/JSONModel"
-], function (BaseController, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/m/MessageToast",
+	"sap/ui/Device"
+], function (BaseController, JSONModel, MessageToast, Device) {
 	"use strict";
 
 	return BaseController.extend("mindtek.controller.Portfolio", {
@@ -17,87 +19,125 @@ sap.ui.define([
 			this.byId("portfolioPage").addEventDelegate({
 				onAfterShow: this.onPortfolioShown
 			}, this);
+			Device.media.attachHandler(this._syncTileLayout, this, Device.media.RANGESETS.SAP_STANDARD);
 
-			var sListReportUrl = this._showcaseUrl(
-				"http://localhost:8081/index.html",
-				"https://mindtek-ltd.com/journalentry-monitor/"
-			);
-			var sAlpUrl = this._showcaseUrl(
-				"http://localhost:8082/index.html",
-				"https://mindtek-ltd.com/journalentry-monitor-alp/"
-			);
-			var sSalesOverviewUrl = this._showcaseUrl(
-				"http://localhost:8083/index.html",
-				"https://mindtek-ltd.com/sales-overview/"
-			);
-			var sApprovalsUrl = this._showcaseUrl(
-				"http://localhost:8084/index.html",
-				"https://mindtek-ltd.com/purchaseorder-worklist/"
-			);
+			Promise.resolve(this.getResourceBundle()).then(function (oBundle) {
+				this._setPortfolioModel(oBundle);
+			}.bind(this));
+		},
 
-			var oJem = {
-				key: "jem",
-				title: "Journal Entry Monitor",
-				floorplan: "List Report + Object Page",
-				icon: "sap-icon://accounting-document-verification",
-				description: "A read-only Fiori Elements List Report for SAP universal journal line items: company code, G/L account, cost center, amounts and reversed items.",
-				url: sListReportUrl
-			};
+		onExit: function () {
+			Device.media.detachHandler(this._syncTileLayout, this, Device.media.RANGESETS.SAP_STANDARD);
+		},
 
-			var oJemAlp = {
-				key: "alp",
-				title: "Journal Entry Monitor",
-				floorplan: "Analytical List Page + Object Page",
-				icon: "sap-icon://bar-chart",
-				description: "The Analytical List Page variant of the journal entry monitor, with KPIs, a chart and a table over the same SAP universal journal line items.",
-				url: sAlpUrl
-			};
+		_setPortfolioModel: function (oBundle) {
+			var aDefs = [
+				{
+					key: "jem",
+					titleKey: "portfolioJemTitle",
+					floorplanKey: "portfolioJemFloorplan",
+					descriptionKey: "portfolioJemDescription",
+					icon: "sap-icon://accounting-document-verification",
+					url: this._showcaseUrl(
+						"http://localhost:8081/index.html",
+						"https://mindtek-ltd.com/journalentry-monitor/"
+					)
+				},
+				{
+					key: "alp",
+					titleKey: "portfolioJemAlpTitle",
+					floorplanKey: "portfolioJemAlpFloorplan",
+					descriptionKey: "portfolioJemAlpDescription",
+					icon: "sap-icon://bar-chart",
+					url: this._showcaseUrl(
+						"http://localhost:8082/index.html",
+						"https://mindtek-ltd.com/journalentry-monitor-alp/"
+					)
+				},
+				{
+					key: "ovp",
+					titleKey: "portfolioOvpTitle",
+					floorplanKey: "portfolioOvpFloorplan",
+					descriptionKey: "portfolioOvpDescription",
+					icon: "sap-icon://overview-chart",
+					url: this._showcaseUrl(
+						"http://localhost:8083/index.html",
+						"https://mindtek-ltd.com/sales-overview/"
+					)
+				},
+				{
+					key: "worklist",
+					titleKey: "portfolioWorklistTitle",
+					floorplanKey: "portfolioWorklistFloorplan",
+					descriptionKey: "portfolioWorklistDescription",
+					icon: "sap-icon://approvals",
+					url: this._showcaseUrl(
+						"http://localhost:8084/index.html",
+						"https://mindtek-ltd.com/purchaseorder-worklist/"
+					)
+				},
+				{
+					key: "freestyle",
+					titleKey: "portfolioFreestyleTitle",
+					floorplanKey: "portfolioFreestyleFloorplan",
+					descriptionKey: "portfolioFreestyleDescription",
+					icon: "sap-icon://grid",
+					url: ""
+				},
+				{
+					key: "feop",
+					titleKey: "portfolioFeopTitle",
+					floorplanKey: "portfolioFeopFloorplan",
+					descriptionKey: "portfolioFeopDescription",
+					icon: "sap-icon://form",
+					url: ""
+				}
+			];
 
-			var oData = {
-				selected: oJem,
-				apps: [
-					oJem,
-					oJemAlp,
-					{
-						key: "ovp",
-						title: "Sales Overview",
-						floorplan: "Overview Page",
-						icon: "sap-icon://overview-chart",
-						description: "An Overview Page for Helvetia Motion AG sales: quotation, order, delivery, billing and the accounting document flow.",
-						url: sSalesOverviewUrl
-					},
-					{
-						key: "worklist",
-						title: "Purchase Approval Worklist",
-						floorplan: "Worklist",
-						icon: "sap-icon://approvals",
-						description: "A Fiori elements Worklist for approving purchase orders: pending items by urgency, a detailed Object Page, and approve or reject with a reason and audit trail.",
-						url: sApprovalsUrl
-					},
-					{
-						key: "freestyle",
-						title: "Warehouse Cockpit",
-						floorplan: "Freestyle / Custom",
-						icon: "sap-icon://grid",
-						description: "A custom freestyle SAPUI5 application tailored to warehouse operations.",
-						url: ""
-					},
-					{
-						key: "feop",
-						title: "Supplier Registration",
-						floorplan: "Form Entry Object Page",
-						icon: "sap-icon://form",
-						description: "A Form Entry Object Page for structured supplier onboarding.",
-						url: ""
-					}
-				]
-			};
-			this.getView().setModel(new JSONModel(oData), "portfolio");
+			var aApps = aDefs.map(function (oDef) {
+				var bLive = !!oDef.url;
+				return {
+					key: oDef.key,
+					title: oBundle.getText(oDef.titleKey),
+					floorplan: oBundle.getText(oDef.floorplanKey),
+					description: oBundle.getText(oDef.descriptionKey),
+					icon: oDef.icon,
+					url: oDef.url,
+					status: oBundle.getText(bLive ? "portfolioLive" : "portfolioComingSoon"),
+					ariaLabel: bLive ? oBundle.getText("portfolioOpensNewTab") : ""
+				};
+			});
+			var aLive = aApps.filter(function (oApp) {
+				return !!oApp.url;
+			});
+			var aSoon = aApps.filter(function (oApp) {
+				return !oApp.url;
+			});
+
+			this.getView().setModel(new JSONModel({
+				phone: this._isPhoneWidth(),
+				apps: aLive.concat(aSoon)
+			}), "portfolio");
+		},
+
+		_isPhoneWidth: function () {
+			return Device.media.getCurrentRange(Device.media.RANGESETS.SAP_STANDARD).name === "Phone";
 		},
 
 		/**
-		 * Show the Work intro first. GridList otherwise focuses the first
-		 * tile and the page heading scrolls out of view.
+		 * Phone uses GenericTile line mode so the six apps stay in a short scroll.
+		 * Desktop and tablet keep the standard tile size in a wrapping row.
+		 */
+		_syncTileLayout: function () {
+			var oModel = this.getView().getModel("portfolio");
+			if (!oModel) {
+				return;
+			}
+			oModel.setProperty("/phone", this._isPhoneWidth());
+		},
+
+		/**
+		 * Show the Work intro first so the page heading stays in view.
 		 */
 		onPortfolioShown: function () {
 			var oPage = this.byId("portfolioPage");
@@ -112,21 +152,13 @@ sap.ui.define([
 		},
 
 		onOpenApp: function (oEvent) {
-			var oItem = oEvent.getParameter("listItem");
-			if (!oItem) {
-				return;
-			}
-			var oApp = oItem.getBindingContext("portfolio").getObject();
-			this.getView().getModel("portfolio").setProperty("/selected", oApp);
-			this._openShowcaseApp(oApp);
-		},
-
-		onPortfolioAction: function () {
-			var oApp = this.getView().getModel("portfolio").getProperty("/selected");
+			var oApp = oEvent.getSource().getBindingContext("portfolio").getObject();
 			if (this._openShowcaseApp(oApp)) {
 				return;
 			}
-			this.onNavToContact();
+			Promise.resolve(this.getResourceBundle()).then(function (oBundle) {
+				MessageToast.show(oBundle.getText("portfolioComingSoonMessage"));
+			});
 		},
 
 		_openShowcaseApp: function (oApp) {
