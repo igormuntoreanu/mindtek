@@ -46,6 +46,7 @@ jobs:
           cp -a vendor/purchaseorder-worklist/webapp/. dist/purchaseorder-worklist/
           touch dist/sales-overview/.nojekyll
           echo "mindtek-ltd.com" > dist/CNAME
+          touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

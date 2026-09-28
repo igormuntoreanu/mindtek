@@ -5,10 +5,11 @@
 	"private": true,
 	"scripts": {
 		"start": "ui5 serve --open index.html",
-		"build": "ui5 build --clean-dest"
+		"build": "ui5 build --clean-dest && node scripts/prerender.js"
 	},
 	"devDependencies": {
 		"@ui5/cli": "^3.9.0",
+		"puppeteer": "^24.43.1",
 		"ui5-middleware-livereload": "^3.4.0"
 	}
 }
