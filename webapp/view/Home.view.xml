@@ -15,7 +15,7 @@
 				<Title id="heroTitle" text="{i18n>companyHeroTitle}" titleStyle="H1" textAlign="Center" wrapping="true" width="100%" />
 				<Text id="heroText" text="{i18n>companyHeroText}" textAlign="Center" class="sapUiSmallMarginTop" />
 				<HBox id="heroActions" class="sapUiMediumMarginTop" justifyContent="Center" wrap="Wrap">
-					<Button id="heroDiscussButton" text="{i18n>headerCtaButton}" type="Emphasized" press=".onNavToContact" class="sapUiTinyMarginEnd" />
+					<Button id="heroDiscussButton" text="{i18n>heroDiscussButton}" type="Emphasized" press=".onNavToContact" class="sapUiTinyMarginEnd" />
 					<Button id="heroExploreButton" text="{i18n>heroExploreButton}" type="Default" press=".onScrollToServices" />
 				</HBox>
 			</VBox>
