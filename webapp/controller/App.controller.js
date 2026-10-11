@@ -7,6 +7,7 @@ sap.ui.define([
 	return BaseController.extend("mindtek.controller.App", {
 		onInit: function () {
 			this.getView().addStyleClass("sapUiSizeCozy");
+			this._initCookieBanner();
 
 			var oNavModel = new JSONModel({
 				currentRoute: "home"
@@ -16,10 +17,6 @@ sap.ui.define([
 			this.getRouter().attachRouteMatched(function (oEvent) {
 				oNavModel.setProperty("/currentRoute", oEvent.getParameter("name"));
 			}, this);
-		},
-
-		onAfterRendering: function () {
-			this._initCookieBanner();
 		},
 
 		/**
@@ -39,8 +36,8 @@ sap.ui.define([
 			} catch (e) {
 				// localStorage unavailable - still show the banner
 			}
-			if (sConsent !== "accepted") {
-				this.byId("cookieBanner").setVisible(true);
+			if (sConsent === "accepted") {
+				this.byId("cookieBanner").setVisible(false);
 			}
 		},
 
@@ -62,8 +59,7 @@ sap.ui.define([
 		},
 
 		/**
-		 * Keep each page at the top after navigation so a GridList tile
-		 * cannot hide the page heading.
+		 * Keep each page at the top after navigation so the page heading stays in view.
 		 */
 		onAfterNavigate: function (oEvent) {
 			var oTo = oEvent.getParameter("to");

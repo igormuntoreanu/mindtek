@@ -1,4 +1,5 @@
-﻿name: Deploy to GitHub Pages
+﻿# Showcase apps copied from the journal, sales overview and purchase order worklist repositories (tab favicons).
+name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
@@ -15,13 +16,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: igormuntoreanu/mindtek-journalentry-monitor
+          path: vendor/journalentry-monitor
+      - uses: actions/checkout@v4
+        with:
+          repository: igormuntoreanu/mindtek-journalentry-monitor-alp
+          path: vendor/journalentry-monitor-alp
+      - uses: actions/checkout@v4
+        with:
+          repository: igormuntoreanu/mindtek-sales-overview
+          path: vendor/sales-overview
+      - uses: actions/checkout@v4
+        with:
+          repository: igormuntoreanu/mindtek-purchaseorder-worklist
+          path: vendor/purchaseorder-worklist
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - run: npm ci
       - run: npm run build
-      - name: Set custom domain
-        run: echo "mindtek-ltd.com" > dist/CNAME
+      - name: Add showcase apps and custom domain
+        run: |
+          mkdir -p dist/journalentry-monitor dist/journalentry-monitor-alp dist/sales-overview dist/purchaseorder-worklist
+          cp -a vendor/journalentry-monitor/webapp/. dist/journalentry-monitor/
+          cp -a vendor/journalentry-monitor-alp/webapp/. dist/journalentry-monitor-alp/
+          cp -a vendor/sales-overview/webapp/. dist/sales-overview/
+          cp -a vendor/purchaseorder-worklist/webapp/. dist/purchaseorder-worklist/
+          touch dist/sales-overview/.nojekyll
+          echo "mindtek-ltd.com" > dist/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
