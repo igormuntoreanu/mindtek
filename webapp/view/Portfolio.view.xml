@@ -3,7 +3,6 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
-	xmlns:f="sap.f"
 	xmlns:cssgrid="sap.ui.layout.cssgrid"
 >
 	<Page id="portfolioPage" showHeader="false" showFooter="false" enableScrolling="true">
@@ -14,50 +13,34 @@
 					<Text id="portfolioPageSubtitle" text="{i18n>workSubtitle}" class="sapUiTinyMarginTop" />
 				</VBox>
 
-				<f:GridList
-					id="portfolioGrid"
-					items="{portfolio>/apps}"
-					itemPress=".onOpenApp"
-					noDataText="{i18n>portfolioSubtitle}"
-					class="sapUiResponsiveMargin sapUiMediumMarginTop">
-					<f:customLayout>
-						<cssgrid:GridBoxLayout id="portfolioGridLayout" boxMinWidth="12rem" />
-					</f:customLayout>
-					<f:GridListItem id="portfolioTileTemplate" type="Active">
-						<VBox id="portfolioTileContent" class="mindtek-tile" alignItems="Center" justifyContent="Center">
-							<core:Icon id="portfolioTileIcon" src="{portfolio>icon}" size="2.25rem" color="#0A6ED1" />
-							<Title id="portfolioTileTitle" text="{portfolio>title}" titleStyle="H6" textAlign="Center" class="sapUiTinyMarginTop" />
-							<Text id="portfolioTileFloorplan" text="{portfolio>floorplan}" textAlign="Center" class="sapUiTinyMarginTop" />
-						</VBox>
-					</f:GridListItem>
-				</f:GridList>
-
-				<Panel id="portfolioDetailPanel" headerText="{i18n>portfolioSelectedTitle}" class="sapUiResponsiveMargin sapUiMediumMarginTop" width="auto">
-					<VBox id="portfolioDetailContent" class="sapUiSmallMargin">
-						<ObjectHeader
-							id="portfolioDetailHeader"
-							title="{portfolio>/selected/title}"
-							intro="{portfolio>/selected/floorplan}"
-							icon="{portfolio>/selected/icon}"
-							iconDensityAware="false">
-							<attributes>
-								<ObjectAttribute id="portfolioDetailAttribute" text="{portfolio>/selected/description}" />
-							</attributes>
-							<statuses>
-								<ObjectStatus
-									id="portfolioDetailStatus"
-									text="{= ${portfolio>/selected/url} ? ${i18n>portfolioLive} : ${i18n>portfolioComingSoon} }"
-									state="{= ${portfolio>/selected/url} ? 'Success' : 'Information' }" />
-							</statuses>
-						</ObjectHeader>
-						<Button
-							id="portfolioDetailButton"
-							text="{= ${portfolio>/selected/url} ? ${i18n>portfolioOpenApp} : ${i18n>portfolioButton} }"
-							type="Emphasized"
-							press=".onPortfolioAction"
-							class="sapUiSmallMarginTop" />
-					</VBox>
-				</Panel>
+				<VBox id="portfolioTileWrap" class="sapUiResponsiveMargin">
+					<cssgrid:CSSGrid
+						id="portfolioTiles"
+						width="100%"
+						items="{portfolio>/apps}"
+						gridGap="{= ${portfolio>/phone} ? '0.5rem' : '1rem' }"
+						gridTemplateColumns="{= ${portfolio>/phone} ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(15rem, 1fr))' }">
+						<cssgrid:items>
+							<GenericTile
+								id="portfolioTile"
+								header="{portfolio>title}"
+								subheader="{= ${portfolio>/phone} ? ${portfolio>floorplan} + ' · ' + ${portfolio>status} : ${portfolio>floorplan} }"
+								tooltip="{portfolio>description}"
+								ariaLabel="{portfolio>ariaLabel}"
+								width="100%"
+								mode="{= ${portfolio>/phone} ? 'LineMode' : 'ContentMode' }"
+								press=".onOpenApp">
+								<tileContent>
+									<TileContent id="portfolioTileContent" footer="{portfolio>status}">
+										<content>
+											<ImageContent id="portfolioTileIcon" src="{portfolio>icon}" />
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+						</cssgrid:items>
+					</cssgrid:CSSGrid>
+				</VBox>
 
 				<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
 			</VBox>
