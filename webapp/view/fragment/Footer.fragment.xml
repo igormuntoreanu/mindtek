@@ -14,6 +14,23 @@
 					<customData><core:CustomData key="url" value="{i18n>youtubeUrl}" /></customData>
 				</Button>
 			</HBox>
+			<HBox id="footerNav" class="mindtek-footer-nav sapUiSmallMarginTop" justifyContent="Center" wrap="Wrap">
+				<Link id="footerNavHome" href="/" text="{i18n>navHome}" press=".onSeoNav">
+					<customData><core:CustomData key="route" value="home" /></customData>
+				</Link>
+				<Link id="footerNavAbout" href="/about/" text="{i18n>navAbout}" press=".onSeoNav">
+					<customData><core:CustomData key="route" value="about" /></customData>
+				</Link>
+				<Link id="footerNavPeople" href="/people/" text="{i18n>navPeople}" press=".onSeoNav">
+					<customData><core:CustomData key="route" value="people" /></customData>
+				</Link>
+				<Link id="footerNavWork" href="/work/" text="{i18n>navWork}" press=".onSeoNav">
+					<customData><core:CustomData key="route" value="work" /></customData>
+				</Link>
+				<Link id="footerNavContact" href="/contact/" text="{i18n>navContact}" press=".onSeoNav">
+					<customData><core:CustomData key="route" value="contact" /></customData>
+				</Link>
+			</HBox>
 			<Text id="footerCopyrightText" text="{i18n>footerCopyright}" textAlign="Center" class="sapUiSmallMarginTop" />
 		</VBox>
 	</Panel>

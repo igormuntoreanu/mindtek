@@ -12,6 +12,7 @@
 					title="{i18n>person1Name}"
 					subtitle="{i18n>person1Role}"
 					iconSrc="assets/people/mindtek-igor-muntoreanu.jpg"
+					iconAlt="Portrait of Igor Muntoreanu, Founder and Principal Developer at MindTek"
 					iconDisplayShape="Square"
 					iconSize="XL"
 				/>
@@ -29,6 +30,7 @@
 					title="{i18n>person2Name}"
 					subtitle="{i18n>person2Role}"
 					iconSrc="assets/people/mindtek-neska-braga.jpg?v=3"
+					iconAlt="Portrait of Neska Braga, Director and Principal Project Manager at MindTek"
 					iconDisplayShape="Square"
 					iconSize="XL"
 				/>

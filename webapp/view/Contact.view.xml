@@ -9,7 +9,7 @@
 		<content>
 			<VBox id="contactContent" class="mindtek-content">
 			<VBox id="contactHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="contactPageTitleText" text="{i18n>contactPageTitle}" titleStyle="H2" />
+				<Title id="contactPageTitleText" text="{i18n>contactPageTitle}" level="H1" titleStyle="H1" />
 				<Text id="contactPageSubtitleText" text="{i18n>contactPageSubtitle}" class="sapUiTinyMarginTop" />
 			</VBox>
 
