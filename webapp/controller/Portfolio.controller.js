@@ -30,6 +30,60 @@ sap.ui.define([
 			Device.media.detachHandler(this._syncTileLayout, this, Device.media.RANGESETS.SAP_STANDARD);
 		},
 
+			var oData = {
+				selected: {
+					key: "jem",
+					title: "Journal Entry Monitor",
+					floorplan: "List Report Object Page",
+					icon: "sap-icon://accounting-document-verification",
+					description: "A Fiori List Report for monitoring SAP journal entries: company code, fiscal year, posting date, document status, filters and list-to-detail navigation."
+				},
+				apps: [
+					{
+						key: "jem",
+						title: "Journal Entry Monitor",
+						floorplan: "List Report Object Page",
+						icon: "sap-icon://accounting-document-verification",
+						description: "A Fiori List Report for monitoring SAP journal entries: company code, fiscal year, posting date, document status, filters and list-to-detail navigation."
+					},
+					{
+						key: "ovp",
+						title: "Sales Overview",
+						floorplan: "Overview Page",
+						icon: "sap-icon://overview-chart",
+						description: "An Overview Page with cards and analytical tiles summarising key sales KPIs at a glance."
+					},
+					{
+						key: "alp",
+						title: "Inventory Analytics",
+						floorplan: "Analytical List Page",
+						icon: "sap-icon://bar-chart",
+						description: "An Analytical List Page with charts and a smart filter bar for inventory analysis."
+					},
+					{
+						key: "worklist",
+						title: "Approvals Worklist",
+						floorplan: "Worklist",
+						icon: "sap-icon://approvals",
+						description: "A Worklist floorplan for processing and approving pending tasks in one place."
+					},
+					{
+						key: "freestyle",
+						title: "Warehouse Cockpit",
+						floorplan: "Freestyle / Custom",
+						icon: "sap-icon://grid",
+						description: "A custom freestyle SAPUI5 application tailored to warehouse operations."
+					},
+					{
+						key: "feop",
+						title: "Supplier Registration",
+						floorplan: "Form Entry Object Page",
+						icon: "sap-icon://form",
+						description: "A Form Entry Object Page for structured supplier onboarding."
+					}
+				]
+			};
+			this.getView().setModel(new JSONModel(oData), "portfolio");
 		_setPortfolioModel: function (oBundle) {
 			var aDefs = [
 				{
