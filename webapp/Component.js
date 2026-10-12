@@ -11,6 +11,12 @@ sap.ui.define([
 		},
 
 		init: function () {
+			// The prerendered copy of the page (scripts/prerender.js) must go before the app renders, or both show.
+			var oPrerender = document.getElementById("mindtek-prerender");
+			if (oPrerender) {
+				oPrerender.remove();
+			}
+
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
