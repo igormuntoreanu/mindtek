@@ -13,8 +13,8 @@ const PORT = 4173;
 const ROUTES = [
 	{ hash: "#/", file: "index.html", text: "Hands-on SAP technical delivery" },
 	{ hash: "#/about", file: "about/index.html", text: "About MindTek" },
-	{ hash: "#/people", file: "people/index.html", text: "Our People" },
-	{ hash: "#/work", file: "work/index.html", text: "Work" },
+	{ hash: "#/people", file: "people/index.html", text: "The directors you brief" },
+	{ hash: "#/work", file: "work/index.html", text: "Working SAP Fiori demo apps" },
 	{ hash: "#/contact", file: "contact/index.html", text: "Request a quote" }
 ];
 
