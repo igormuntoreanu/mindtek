@@ -90,7 +90,10 @@ sap.ui.define([
 					floorplanKey: "portfolioFeopFloorplan",
 					descriptionKey: "portfolioFeopDescription",
 					icon: "sap-icon://form",
-					url: ""
+					url: this._showcaseUrl(
+						"http://localhost:8085/index.html",
+						"https://mindtek-ltd.com/supplier-registration/"
+					)
 				}
 			];
 
