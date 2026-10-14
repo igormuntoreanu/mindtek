@@ -82,7 +82,10 @@ sap.ui.define([
 					floorplanKey: "portfolioFreestyleFloorplan",
 					descriptionKey: "portfolioFreestyleDescription",
 					icon: "sap-icon://grid",
-					url: ""
+					url: this._showcaseUrl(
+						"http://localhost:8086/index.html",
+						"https://mindtek-ltd.com/warehouse-cockpit/"
+					)
 				},
 				{
 					key: "feop",

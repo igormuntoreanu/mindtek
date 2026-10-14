@@ -1,4 +1,4 @@
-﻿# Showcase apps copied from the journal, sales, purchase order and supplier repositories.
+﻿# Showcase apps copied from the journal, sales, purchase order, supplier and warehouse repositories.
 name: Deploy to GitHub Pages
 on:
   push:
@@ -36,6 +36,10 @@ jobs:
         with:
           repository: igormuntoreanu/mindtek-supplier-registration
           path: vendor/supplier-registration
+      - uses: actions/checkout@v4
+        with:
+          repository: igormuntoreanu/mindtek-warehouse-cockpit
+          path: vendor/warehouse-cockpit
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -43,12 +47,13 @@ jobs:
       - run: npm run build
       - name: Add showcase apps and custom domain
         run: |
-          mkdir -p dist/journalentry-monitor dist/journalentry-monitor-alp dist/sales-overview dist/purchaseorder-worklist dist/supplier-registration
+          mkdir -p dist/journalentry-monitor dist/journalentry-monitor-alp dist/sales-overview dist/purchaseorder-worklist dist/supplier-registration dist/warehouse-cockpit
           cp -a vendor/journalentry-monitor/webapp/. dist/journalentry-monitor/
           cp -a vendor/journalentry-monitor-alp/webapp/. dist/journalentry-monitor-alp/
           cp -a vendor/sales-overview/webapp/. dist/sales-overview/
           cp -a vendor/purchaseorder-worklist/webapp/. dist/purchaseorder-worklist/
           cp -a vendor/supplier-registration/webapp/. dist/supplier-registration/
+          cp -a vendor/warehouse-cockpit/webapp/. dist/warehouse-cockpit/
           touch dist/sales-overview/.nojekyll
           echo "mindtek-ltd.com" > dist/CNAME
           touch dist/.nojekyll
