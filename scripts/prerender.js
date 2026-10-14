@@ -16,12 +16,15 @@ const path = require("path");
 const DIST = path.join(__dirname, "..", "dist");
 const PORT = 4173;
 const ROUTES = [
-	{ hash: "#/", file: "index.html", text: "Hands-on SAP technical delivery" },
-	{ hash: "#/about", file: "about/index.html", text: "About MindTek" },
-	{ hash: "#/people", file: "people/index.html", text: "The directors you brief" },
-	{ hash: "#/work", file: "work/index.html", text: "Working SAP Fiori demo apps" },
-	{ hash: "#/contact", file: "contact/index.html", text: "Request a quote" }
+	{ path: "/", file: "index.html", text: "Hands-on SAP technical delivery" },
+	{ path: "/about", file: "about/index.html", text: "About MindTek" },
+	{ path: "/people", file: "people/index.html", text: "The directors you brief" },
+	{ path: "/work", file: "work/index.html", text: "Working SAP Fiori demo apps" },
+	{ path: "/contact", file: "contact/index.html", text: "Request a quote" }
 ];
+const SHELL_PATHS = ROUTES.reduce(function (aPaths, route) {
+	return aPaths.concat([route.path, route.path.replace(/\/?$/, "/")]);
+}, ["/index.html"]);
 
 function contentType(filePath) {
 	var ext = path.extname(filePath).toLowerCase();
@@ -47,7 +50,7 @@ function startServer(shellHtml) {
 	return new Promise(function (resolve) {
 		var server = http.createServer(function (req, res) {
 			var urlPath = decodeURIComponent(req.url.split("?")[0]);
-			if (urlPath === "/" || urlPath === "/index.html") {
+			if (SHELL_PATHS.indexOf(urlPath) !== -1) {
 				res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
 				res.end(shellHtml);
 				return;
@@ -174,7 +177,7 @@ async function main() {
 		for (var i = 0; i < ROUTES.length; i++) {
 			var route = ROUTES[i];
 			var page = await browser.newPage();
-			await page.goto("http://127.0.0.1:" + PORT + "/" + route.hash, {
+			await page.goto("http://127.0.0.1:" + PORT + route.path, {
 				waitUntil: "networkidle0",
 				timeout: 120000
 			});

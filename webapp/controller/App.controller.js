@@ -22,46 +22,40 @@ sap.ui.define([
 		},
 
 		/**
-		 * One title, description and canonical URL per route. Google treats
-		 * the hash in /#/about as the same page as /, so the address bar is
-		 * updated to a real path such as /about/ as well.
+		 * One title, description and canonical URL per route. The canonical
+		 * keeps the trailing slash because GitHub Pages serves /about/ and
+		 * redirects /about to it.
 		 */
 		_seoPages: {
 			home: {
 				title: "MindTek Ltd | SAP ABAP, RAP, Fiori and CPI consultancy",
 				description: "Hands-on SAP technical delivery. MindTek Ltd analyses, estimates, develops and tests ABAP, RAP, CDS, Fiori, OData, S/4HANA, CAP, CPI and Workflow, with a written scope before work starts.",
-				path: "/",
-				hash: "#/"
+				path: "/"
 			},
 			about: {
 				title: "About MindTek Ltd | SAP technical consultancy",
 				description: "MindTek Ltd is a small SAP consultancy. You work directly with the people writing the code, from ABAP and RAP through Fiori, integrations and go-live.",
-				path: "/about/",
-				hash: "#/about"
+				path: "/about/"
 			},
 			people: {
 				title: "Our People | SAP consultants at MindTek Ltd",
 				description: "Meet Igor Muntoreanu and Neska Braga. The directors you brief are the SAP consultants who estimate, build and deliver the work.",
-				path: "/people/",
-				hash: "#/people"
+				path: "/people/"
 			},
 			work: {
 				title: "SAP Fiori app showcase | MindTek Ltd",
 				description: "A launchpad-style showcase of SAP Fiori apps and floorplans, including List Report, Analytical List Page and Overview Page demos.",
-				path: "/work/",
-				hash: "#/work"
+				path: "/work/"
 			},
 			portfolio: {
 				title: "SAP Fiori app showcase | MindTek Ltd",
 				description: "A launchpad-style showcase of SAP Fiori apps and floorplans, including List Report, Analytical List Page and Overview Page demos.",
-				path: "/work/",
-				hash: "#/work"
+				path: "/work/"
 			},
 			contact: {
 				title: "Request an SAP quote | MindTek Ltd",
 				description: "Tell MindTek Ltd about your SAP requirement. We reply with a written scope and a quote for ABAP, RAP, Fiori, CAP, CPI or a technical review.",
-				path: "/contact/",
-				hash: "#/contact"
+				path: "/contact/"
 			}
 		},
 
@@ -82,11 +76,6 @@ sap.ui.define([
 				document.head.appendChild(oCanonical);
 			}
 			oCanonical.setAttribute("href", sUrl);
-
-			var sNext = oPage.path + oPage.hash;
-			if (window.location.pathname + window.location.hash !== sNext) {
-				window.history.replaceState({ route: sRoute }, "", sNext);
-			}
 		},
 
 		_setMeta: function (sName, sContent, sAttr) {

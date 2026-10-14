@@ -37,34 +37,6 @@
 		}
 	}
 	</script>
-	<script>
-		/* Real paths such as /about/ have no hash yet. Point the UI5 router at the matching route before it starts. */
-		(function () {
-			var mRoutes = {
-				"/": "",
-				"/index.html": "",
-				"/about": "about",
-				"/about/": "about",
-				"/people": "people",
-				"/people/": "people",
-				"/work": "work",
-				"/work/": "work",
-				"/portfolio": "work",
-				"/portfolio/": "work",
-				"/contact": "contact",
-				"/contact/": "contact"
-			};
-			var sPath = window.location.pathname;
-			if (!Object.prototype.hasOwnProperty.call(mRoutes, sPath)) {
-				return;
-			}
-			if (window.location.hash && window.location.hash !== "#") {
-				return;
-			}
-			var sRoute = mRoutes[sPath];
-			window.history.replaceState(null, "", sPath + (sRoute ? "#/" + sRoute : "#/"));
-		}());
-	</script>
 	<script
 		id="sap-ui-bootstrap"
 		src="https://ui5.sap.com/1.151.0/resources/sap-ui-core.js"
@@ -74,7 +46,7 @@
 		data-sap-ui-async="true"
 		data-sap-ui-language="en-GB"
 		data-sap-ui-frameOptions="trusted"
-		data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+		data-sap-ui-oninit="module:mindtek/init"
 	></script>
 </head>
 <body class="sapUiBody sapUiSizeCozy" id="content">
