@@ -42,6 +42,8 @@
 /* A closed dialog stays in the shell and would otherwise be a second H1. */
 .sapMDialog:not(.sapMDialogOpen) {
 	display: none !important;
+}
+
 /* Phone: keep logo and nav on one row. Slightly tighter buttons so Work is not pushed into the overflow menu. */
 @media (max-width: 599px) {
 	.mindtek-shellbar .sapMBtnInner {
@@ -61,33 +63,6 @@
 
 .mindtek-app {
 	min-height: 0;
-}
-
-/* Privacy bar shares the centred content column, with the actions kept together. */
-.mindtek-cookie-banner.sapMHBox {
-	background: #f7f8f9;
-	border-top: 1px solid #d9d9d9;
-	flex-shrink: 0;
-	box-sizing: border-box;
-	padding: 0.75rem max(1rem, calc((100% - 68rem) / 2 + 1rem)) calc(0.75rem + env(safe-area-inset-bottom));
-	gap: 0.75rem 1.25rem;
-}
-
-.mindtek-cookie-banner .mindtek-cookie-text {
-	flex: 1 1 18rem;
-	min-width: 0;
-}
-
-.mindtek-cookie-banner .mindtek-cookie-text .sapMText {
-	color: #354a5f;
-	font-size: 0.875rem;
-	line-height: 1.45;
-}
-
-.mindtek-cookie-banner .mindtek-cookie-actions {
-	flex: 0 0 auto;
-	margin-left: auto;
-	gap: 0.5rem;
 }
 
 /* Stretch every card in a row to the tallest sibling. */
