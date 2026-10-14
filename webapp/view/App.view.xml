@@ -46,12 +46,14 @@
 		<HBox
 			id="cookieBanner"
 			class="mindtek-cookie-banner"
+			alignContent="Center"
 			alignItems="Center"
+			direction="ColumnReverse"
 			wrap="Wrap">
 			<VBox id="cookieBannerTextWrap" class="mindtek-cookie-text" alignItems="Start">
 				<Text id="cookieBannerText" text="{i18n>cookieBannerText}" wrapping="true" />
 			</VBox>
-			<HBox id="cookieBannerActions" class="mindtek-cookie-actions" alignItems="Center">
+			<HBox id="cookieBannerActions" class="mindtek-cookie-actions" alignItems="Center" gap="1rem">
 				<Button id="cookieBannerPrivacyButton" text="{i18n>cookieBannerPrivacy}" type="Default" press=".onCookieBannerPrivacy" />
 				<Button id="cookieBannerAcceptButton" text="{i18n>cookieBannerAccept}" type="Emphasized" press=".onCookieBannerAccept" />
 			</HBox>
