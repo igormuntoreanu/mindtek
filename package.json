@@ -5,7 +5,8 @@
 	"private": true,
 	"scripts": {
 		"start": "ui5 serve --open index.html",
-		"build": "ui5 build --clean-dest && node scripts/prerender.js"
+		"build": "ui5 build --clean-dest && node scripts/prerender.js",
+		"test:ui": "node scripts/ui-regression.js"
 	},
 	"devDependencies": {
 		"@ui5/cli": "^3.9.0",

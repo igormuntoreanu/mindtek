@@ -10,64 +10,62 @@
 	<Page id="homePage" showHeader="false" showFooter="false" enableScrolling="true">
 		<content>
 			<VBox id="homeContent" class="mindtek-content">
-			<!-- Hero: outcome + one primary CTA + secondary -->
 			<VBox id="homeHero" class="sapUiResponsiveMargin sapUiLargeMarginTop mindtek-hero" alignItems="Center">
-				<Title id="heroTitle" text="{i18n>companyHeroTitle}" level="H1" titleStyle="H1" textAlign="Center" wrapping="true" width="100%" />
-				<Text id="heroText" text="{i18n>companyHeroText}" textAlign="Center" class="sapUiSmallMarginTop" />
-				<HBox id="heroActions" class="sapUiMediumMarginTop" justifyContent="Center" wrap="Wrap">
-					<Button id="heroDiscussButton" text="{i18n>heroDiscussButton}" type="Emphasized" press=".onNavToContact" class="sapUiTinyMarginEnd" />
-					<Button id="heroExploreButton" text="{i18n>heroExploreButton}" type="Default" press=".onScrollToServices" />
+				<Title id="heroTitle" text="{i18n>companyHeroTitle}" level="H1" titleStyle="{= ${layout>/phone} ? 'H2' : 'H1' }" wrapping="true" wrappingType="Normal" textAlign="Center" width="100%" class="mindtek-page-title" />
+				<Text id="heroText" text="{i18n>companyHeroText}" textAlign="Center" wrapping="true" width="100%" class="sapUiSmallMarginTop" />
+				<HBox id="heroActions" class="sapUiMediumMarginTop" justifyContent="Center" wrap="Wrap" alignItems="Center">
+					<Button id="heroDiscussButton" text="{i18n>heroDiscussButton}" type="Emphasized" press=".onNavToContact" class="sapUiTinyMarginEnd sapUiTinyMarginBottom" />
+					<Button id="heroExploreButton" text="{i18n>heroExploreButton}" type="Default" press=".onNavToWork" class="sapUiTinyMarginBottom" />
 				</HBox>
 			</VBox>
 
-			<!-- Proof: client logos earlier so the brochure is not claim-first -->
-			<Panel id="clientExperiencePanel" headerText="{i18n>clientExperienceTitle}" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
-				<VBox id="clientExperienceContent" class="sapUiSmallMargin" alignItems="Center">
-					<Text id="clientExperienceSubtitleText" text="{i18n>clientExperienceSubtitle}" textAlign="Center" />
-					<HBox id="clientLogos" class="sapUiMediumMarginTop" wrap="Wrap" justifyContent="Center" alignItems="Center">
-						<Image id="logoMercedesBenz" src="assets/logos/mercedes-benz.jpg" alt="Mercedes-Benz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoPorsche" src="assets/logos/porsche.jpg" alt="Porsche" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoMastercard" src="assets/logos/mastercard.jpg" alt="Mastercard" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoUnilever" src="assets/logos/unilever.jpg" alt="Unilever" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoVodafone" src="assets/logos/vodafone.jpg" alt="Vodafone" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoDeutscheTelekom" src="assets/logos/deutsche-telekom.jpg" alt="Deutsche Telekom" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoBayer" src="assets/logos/bayer.jpg" alt="Bayer" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoSantander" src="assets/logos/santander.jpg" alt="Santander" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoAccenture" src="assets/logos/accenture.jpg" alt="Accenture" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoJohnDeere" src="assets/logos/john-deere.jpg" alt="John Deere" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoTakeda" src="assets/logos/takeda.jpg" alt="Takeda" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoBacardi" src="assets/logos/bacardi.jpg" alt="Bacardi" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoCapgemini" src="assets/logos/capgemini.jpg" alt="Capgemini" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoCanadaLife" src="assets/logos/canada-life.jpg" alt="Canada Life" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoNatura" src="assets/logos/natura.jpg" alt="Natura" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoBrf" src="assets/logos/brf.jpg" alt="BRF" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoBunge" src="assets/logos/bunge.jpg" alt="Bunge" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoVoith" src="assets/logos/voith.jpg" alt="Voith" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoErm" src="assets/logos/erm.jpg" alt="ERM" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoCloudreach" src="assets/logos/cloudreach.jpg" alt="Cloudreach" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoGrunenthal" src="assets/logos/grunenthal.jpg" alt="Grünenthal" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoProvinzial" src="assets/logos/provinzial.jpg" alt="Provinzial" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoInfoglobo" src="assets/logos/infoglobo.jpg" alt="Infoglobo" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoCogna" src="assets/logos/cogna.jpg" alt="Cogna" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoWestSussexCountyCouncil" src="assets/logos/west-sussex-county-council.jpg" alt="West Sussex County Council" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoHochschulrektorenkonferenz" src="assets/logos/hochschulrektorenkonferenz.jpg" alt="Hochschulrektorenkonferenz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoAlleasy" src="assets/logos/alleasy.jpg" alt="Alleasy" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-						<Image id="logoSow" src="assets/logos/sow.jpg" alt="SOW" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-					</HBox>
-				</VBox>
-			</Panel>
+			<VBox id="benefitsSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="benefitsTitle" text="{i18n>benefitsTitle}" level="H2" titleStyle="H3" wrapping="true" width="100%" />
+				<l:Grid id="benefitsGrid" defaultSpan="XL3 L6 M6 S12" class="sapUiSmallMarginTop mindtek-card-grid" hSpacing="1" vSpacing="1">
+					<f:Card id="benefitCard1" class="mindtek-card">
+						<f:header>
+							<card:Header title="{i18n>benefit1Title}" iconSrc="{i18n>benefit1Icon}" />
+						</f:header>
+						<f:content>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>benefit1Text}" wrapping="true" /></VBox>
+						</f:content>
+					</f:Card>
+					<f:Card id="benefitCard2" class="mindtek-card">
+						<f:header>
+							<card:Header title="{i18n>benefit2Title}" iconSrc="{i18n>benefit2Icon}" />
+						</f:header>
+						<f:content>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>benefit2Text}" wrapping="true" /></VBox>
+						</f:content>
+					</f:Card>
+					<f:Card id="benefitCard3" class="mindtek-card">
+						<f:header>
+							<card:Header title="{i18n>benefit3Title}" iconSrc="{i18n>benefit3Icon}" />
+						</f:header>
+						<f:content>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>benefit3Text}" wrapping="true" /></VBox>
+						</f:content>
+					</f:Card>
+					<f:Card id="benefitCard4" class="mindtek-card">
+						<f:header>
+							<card:Header title="{i18n>benefit4Title}" iconSrc="{i18n>benefit4Icon}" />
+						</f:header>
+						<f:content>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>benefit4Text}" wrapping="true" /></VBox>
+						</f:content>
+					</f:Card>
+				</l:Grid>
+			</VBox>
 
-			<!-- Services: all six offerings visible. Collapsing QA/delivery hid half the catalogue. -->
 			<VBox id="servicesSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="servicesTitle" text="{i18n>servicesGlanceTitle}" level="H2" titleStyle="H2" />
-				<Text id="servicesSubtitle" text="{i18n>servicesGlanceSubtitle}" class="sapUiTinyMarginTop" />
+				<Title id="servicesTitle" text="{i18n>servicesGlanceTitle}" level="H2" titleStyle="H3" wrapping="true" width="100%" />
 				<l:Grid id="servicesGrid" defaultSpan="XL4 L4 M6 S12" class="sapUiSmallMarginTop mindtek-card-grid" hSpacing="1" vSpacing="1">
 					<f:Card id="serviceCard1" class="mindtek-card">
 						<f:header>
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>service1Title}" subtitle="{i18n>service1Subtitle}" iconSrc="{i18n>service1Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>service1Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>service1Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 					<f:Card id="serviceCard2" class="mindtek-card">
@@ -75,7 +73,7 @@
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>service2Title}" subtitle="{i18n>service2Subtitle}" iconSrc="{i18n>service2Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>service2Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>service2Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 					<f:Card id="serviceCard3" class="mindtek-card">
@@ -83,7 +81,7 @@
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>service3Title}" subtitle="{i18n>service3Subtitle}" iconSrc="{i18n>service3Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>service3Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>service3Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 					<f:Card id="serviceCard4" class="mindtek-card">
@@ -91,7 +89,7 @@
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>service4Title}" subtitle="{i18n>service4Subtitle}" iconSrc="{i18n>service4Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>service4Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>service4Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 					<f:Card id="serviceCard5" class="mindtek-card">
@@ -99,7 +97,7 @@
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>service5Title}" subtitle="{i18n>service5Subtitle}" iconSrc="{i18n>service5Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>service5Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>service5Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 					<f:Card id="serviceCard6" class="mindtek-card">
@@ -107,22 +105,21 @@
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>service6Title}" subtitle="{i18n>service6Subtitle}" iconSrc="{i18n>service6Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>service6Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>service6Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 				</l:Grid>
 			</VBox>
 
-			<!-- Ways to engage: differentiator, kept distinct from How we work -->
 			<VBox id="engagementSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="engagementTitle" text="{i18n>engagementModelsHomeTitle}" level="H2" titleStyle="H2" />
+				<Title id="engagementTitle" text="{i18n>engagementModelsHomeTitle}" level="H2" titleStyle="H3" wrapping="true" width="100%" />
 				<l:Grid id="engagementGrid" defaultSpan="XL4 L4 M6 S12" class="sapUiSmallMarginTop mindtek-card-grid" hSpacing="1" vSpacing="1">
 					<f:Card id="engagementCard1" class="mindtek-card">
 						<f:header>
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>engagement1Title}" iconSrc="{i18n>engagement1Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>engagement1Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>engagement1Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 					<f:Card id="engagementCard2" class="mindtek-card">
@@ -130,7 +127,7 @@
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>engagement2Title}" iconSrc="{i18n>engagement2Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>engagement2Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>engagement2Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 					<f:Card id="engagementCard3" class="mindtek-card">
@@ -138,47 +135,107 @@
 							<card:Header iconBackgroundColor="Accent6" title="{i18n>engagement3Title}" iconSrc="{i18n>engagement3Icon}" />
 						</f:header>
 						<f:content>
-							<VBox class="sapUiSmallMargin"><Text text="{i18n>engagement3Description}" /></VBox>
+							<VBox class="sapUiSmallMargin"><Text text="{i18n>engagement3Description}" wrapping="true" /></VBox>
 						</f:content>
 					</f:Card>
 				</l:Grid>
 			</VBox>
 
-			<!-- How we work: compact strip, not another card deck -->
 			<VBox id="approachSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="approachTitle" text="{i18n>howWeWorkTitle}" level="H2" titleStyle="H2" />
-				<Text id="approachSubtitle" text="{i18n>howWeWorkSubtitle}" class="sapUiTinyMarginTop" />
-				<List id="approachList" class="sapUiSmallMarginTop mindtek-approach-list">
-					<StandardListItem id="approachItem1" title="{i18n>approach1Title}" description="{i18n>approach1Description}" icon="{i18n>approach1Icon}" info="{i18n>approach1Subtitle}" infoState="Information" infoStateInverted="true" wrapping="true" wrappingType="Normal" />
-					<StandardListItem id="approachItem2" title="{i18n>approach2Title}" description="{i18n>approach2Description}" icon="{i18n>approach2Icon}" info="{i18n>approach2Subtitle}" infoState="Information" infoStateInverted="true" wrapping="true" wrappingType="Normal" />
-					<StandardListItem id="approachItem3" title="{i18n>approach3Title}" description="{i18n>approach3Description}" icon="{i18n>approach3Icon}" info="{i18n>approach3Subtitle}" infoState="Information" infoStateInverted="true" wrapping="true" wrappingType="Normal" />
-					<StandardListItem id="approachItem4" title="{i18n>approach4Title}" description="{i18n>approach4Description}" icon="{i18n>approach4Icon}" info="{i18n>approach4Subtitle}" infoState="Information" infoStateInverted="true" wrapping="true" wrappingType="Normal" />
+				<Title id="approachTitle" text="{i18n>howWeWorkTitle}" level="H2" titleStyle="H3" wrapping="true" width="100%" />
+				<List id="approachList" class="sapUiSmallMarginTop" showSeparators="Inner">
+					<CustomListItem id="approachItem1" type="Inactive">
+						<HBox alignItems="Start" class="sapUiSmallMargin">
+							<core:Icon src="{i18n>approach1Icon}" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
+							<VBox width="100%">
+								<Title text="{i18n>approach1Title}" level="H3" titleStyle="H5" wrapping="true" />
+								<Text text="{i18n>approach1Description}" wrapping="true" />
+							</VBox>
+						</HBox>
+					</CustomListItem>
+					<CustomListItem id="approachItem2" type="Inactive">
+						<HBox alignItems="Start" class="sapUiSmallMargin">
+							<core:Icon src="{i18n>approach2Icon}" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
+							<VBox width="100%">
+								<Title text="{i18n>approach2Title}" level="H3" titleStyle="H5" wrapping="true" />
+								<Text text="{i18n>approach2Description}" wrapping="true" />
+							</VBox>
+						</HBox>
+					</CustomListItem>
+					<CustomListItem id="approachItem3" type="Inactive">
+						<HBox alignItems="Start" class="sapUiSmallMargin">
+							<core:Icon src="{i18n>approach3Icon}" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
+							<VBox width="100%">
+								<Title text="{i18n>approach3Title}" level="H3" titleStyle="H5" wrapping="true" />
+								<Text text="{i18n>approach3Description}" wrapping="true" />
+							</VBox>
+						</HBox>
+					</CustomListItem>
+					<CustomListItem id="approachItem4" type="Inactive">
+						<HBox alignItems="Start" class="sapUiSmallMargin">
+							<core:Icon src="{i18n>approach4Icon}" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
+							<VBox width="100%">
+								<Title text="{i18n>approach4Title}" level="H3" titleStyle="H5" wrapping="true" />
+								<Text text="{i18n>approach4Description}" wrapping="true" />
+							</VBox>
+						</HBox>
+					</CustomListItem>
 				</List>
 			</VBox>
 
-			<!-- Our People: directors you actually work with -->
-			<VBox id="peopleSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="peopleTitle" text="{i18n>peopleTitle}" level="H2" titleStyle="H2" />
-				<Text id="peopleSubtitle" text="{i18n>peopleSubtitle}" class="sapUiTinyMarginTop" />
-				<core:Fragment fragmentName="mindtek.view.fragment.PeopleCards" type="XML" />
+			<VBox id="experienceSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="experienceTitle" text="{i18n>experienceTitle}" level="H2" titleStyle="H3" wrapping="true" width="100%" />
+				<Text id="experienceDisclaimer" text="{i18n>experienceDisclaimer}" wrapping="true" class="sapUiTinyMarginTop" />
+				<HBox id="clientLogos" class="sapUiSmallMarginTop" wrap="Wrap" justifyContent="Center" alignItems="Center">
+					<Image id="logoMercedesBenz" src="assets/logos/mercedes-benz.jpg" alt="Mercedes-Benz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoPorsche" src="assets/logos/porsche.jpg" alt="Porsche" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoMastercard" src="assets/logos/mastercard.jpg" alt="Mastercard" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoUnilever" src="assets/logos/unilever.jpg" alt="Unilever" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoVodafone" src="assets/logos/vodafone.jpg" alt="Vodafone" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoDeutscheTelekom" src="assets/logos/deutsche-telekom.jpg" alt="Deutsche Telekom" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoBayer" src="assets/logos/bayer.jpg" alt="Bayer" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoSantander" src="assets/logos/santander.jpg" alt="Santander" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoAccenture" src="assets/logos/accenture.jpg" alt="Accenture" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoJohnDeere" src="assets/logos/john-deere.jpg" alt="John Deere" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoTakeda" src="assets/logos/takeda.jpg" alt="Takeda" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoBacardi" src="assets/logos/bacardi.jpg" alt="Bacardi" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoCapgemini" src="assets/logos/capgemini.jpg" alt="Capgemini" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoCanadaLife" src="assets/logos/canada-life.jpg" alt="Canada Life" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoNatura" src="assets/logos/natura.jpg" alt="Natura" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoBrf" src="assets/logos/brf.jpg" alt="BRF" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoBunge" src="assets/logos/bunge.jpg" alt="Bunge" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoVoith" src="assets/logos/voith.jpg" alt="Voith" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoErm" src="assets/logos/erm.jpg" alt="ERM" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoCloudreach" src="assets/logos/cloudreach.jpg" alt="Cloudreach" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoGrunenthal" src="assets/logos/grunenthal.jpg" alt="Grünenthal" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoProvinzial" src="assets/logos/provinzial.jpg" alt="Provinzial" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoInfoglobo" src="assets/logos/infoglobo.jpg" alt="Infoglobo" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoCogna" src="assets/logos/cogna.jpg" alt="Cogna" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoWestSussexCountyCouncil" src="assets/logos/west-sussex-county-council.jpg" alt="West Sussex County Council" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoHochschulrektorenkonferenz" src="assets/logos/hochschulrektorenkonferenz.jpg" alt="Hochschulrektorenkonferenz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoAlleasy" src="assets/logos/alleasy.jpg" alt="Alleasy" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoSow" src="assets/logos/sow.jpg" alt="SOW" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+				</HBox>
+				<Button id="experienceToggle" text="{i18n>experienceShowMore}" type="Default" press=".onToggleExperience" class="sapUiSmallMarginTop" />
 			</VBox>
 
-			<!-- Work teaser: keep the route even while demos are empty -->
-			<Panel id="workTeaserPanel" headerText="{i18n>portfolioTeaserTitle}" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
-				<VBox id="workTeaserContent" class="sapUiSmallMargin" alignItems="Center">
-					<Text id="workTeaserSubtitleText" text="{i18n>portfolioTeaserSubtitle}" textAlign="Center" />
-					<Button id="workTeaserButton" text="{i18n>portfolioTeaserButton}" type="Default" press=".onNavToWork" class="sapUiSmallMarginTop" />
-				</VBox>
-			</Panel>
+			<VBox id="peopleSection" class="sapUiResponsiveMargin sapUiLargeMarginTop" alignItems="Center">
+				<Title id="peopleTitle" text="{i18n>peopleTeaserTitle}" level="H2" titleStyle="H3" wrapping="true" textAlign="Center" width="100%" />
+				<Text id="peopleSubtitle" text="{i18n>peopleTeaserText}" wrapping="true" textAlign="Center" class="sapUiTinyMarginTop" />
+				<Button id="peopleTeaserButton" text="{i18n>peopleTeaserButton}" type="Default" press=".onNavToPeople" class="sapUiSmallMarginTop" />
+			</VBox>
 
-			<!-- Closing CTA -->
-			<Panel id="closingCtaPanel" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
-				<VBox id="closingCtaContent" class="sapUiMediumMargin" alignItems="Center">
-					<Title id="closingCtaTitle" text="{i18n>ctaTitle}" titleStyle="H3" wrapping="true" textAlign="Center" />
-					<Text id="closingCtaText" text="{i18n>companyClosingStatement}" textAlign="Center" class="sapUiSmallMarginTop" />
-					<Button id="closingCtaButton" text="{i18n>ctaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
-				</VBox>
-			</Panel>
+			<VBox id="workTeaserSection" class="sapUiResponsiveMargin sapUiLargeMarginTop" alignItems="Center">
+				<Title id="workTeaserTitle" text="{i18n>portfolioTeaserTitle}" level="H2" titleStyle="H3" wrapping="true" textAlign="Center" width="100%" />
+				<Text id="workTeaserSubtitleText" text="{i18n>portfolioTeaserSubtitle}" wrapping="true" textAlign="Center" class="sapUiTinyMarginTop" />
+				<Button id="workTeaserButton" text="{i18n>portfolioTeaserButton}" type="Default" press=".onNavToWork" class="sapUiSmallMarginTop" />
+			</VBox>
+
+			<VBox id="closingCtaSection" class="sapUiResponsiveMargin sapUiLargeMarginTop" alignItems="Center">
+				<Title id="closingCtaTitle" text="{i18n>ctaTitle}" level="H2" titleStyle="H3" wrapping="true" textAlign="Center" width="100%" />
+				<Text id="closingCtaText" text="{i18n>companyClosingStatement}" textAlign="Center" wrapping="true" class="sapUiSmallMarginTop" />
+				<Button id="closingCtaButton" text="{i18n>ctaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
+			</VBox>
 
 			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
 			</VBox>

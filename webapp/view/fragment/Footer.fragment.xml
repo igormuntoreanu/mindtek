@@ -3,20 +3,8 @@
 	xmlns:core="sap.ui.core"
 >
 	<VBox id="footerPanel" class="mindtek-footer" width="100%" alignItems="Center">
-		<HBox id="footerSocial" class="mindtek-footer-social" justifyContent="Center" alignItems="Center">
-			<!-- TODO: wire LinkedIn once a verified company URL exists. Safe stub (#) is ignored in onOpenSocialLink. -->
-			<Button id="linkedinButton" icon="assets/icons/linkedin.png" type="Transparent" press=".onOpenSocialLink" tooltip="{i18n>linkedinTooltip}" class="mindtek-footer-social-button">
-				<customData><core:CustomData key="url" value="{i18n>linkedinUrl}" /></customData>
-			</Button>
-			<!-- TODO: wire X once a verified company URL exists. Safe stub (#) is ignored in onOpenSocialLink. -->
-			<Button id="xButton" icon="assets/icons/x.svg" type="Transparent" press=".onOpenSocialLink" tooltip="{i18n>xTooltip}" class="mindtek-footer-social-button sapUiTinyMarginBegin">
-				<customData><core:CustomData key="url" value="{i18n>xUrl}" /></customData>
-			</Button>
-			<!-- TODO: wire YouTube once a verified company URL exists. Safe stub (#) is ignored in onOpenSocialLink. -->
-			<Button id="youtubeButton" icon="assets/icons/youtube.png" type="Transparent" press=".onOpenSocialLink" tooltip="{i18n>youtubeTooltip}" class="mindtek-footer-social-button sapUiTinyMarginBegin">
-				<customData><core:CustomData key="url" value="{i18n>youtubeUrl}" /></customData>
-			</Button>
-		</HBox>
+		<Text id="footerCompanyName" text="{i18n>footerCompanyName}" />
+		<Link id="footerEmailLink" href="{i18n>companyContactMailto}" text="{i18n>companyContactEmail}" class="sapUiTinyMarginTop" />
 		<HBox id="footerNav" class="mindtek-footer-nav sapUiSmallMarginTop" justifyContent="Center" alignItems="Center" wrap="Wrap">
 			<Link id="footerNavHome" href="/" text="{i18n>navHome}" press=".onSeoNav">
 				<customData><core:CustomData key="route" value="home" /></customData>

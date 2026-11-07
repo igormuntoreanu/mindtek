@@ -15,44 +15,11 @@ sap.ui.define([
 				requirement: ""
 			}), "form");
 
-			this.getRouter().getRoute("contact").attachPatternMatched(this.onContactMatched, this);
-			this.byId("contactPage").addEventDelegate({
-				onAfterShow: this.onAfterShow
+			["nameInput", "workEmailInput", "requirementInput"].forEach(function (sId) {
+				this.byId(sId).attachLiveChange(function (oEvent) {
+					oEvent.getSource().setValueState("None");
+				});
 			}, this);
-
-			this._bindContactEmailLink();
-		},
-
-		_bindContactEmailLink: function () {
-			var oLink = this.byId("contactEmailValueLink");
-			Promise.resolve(this.getResourceBundle()).then(function (oResourceBundle) {
-				var sEmail = oResourceBundle.getText("companyContactEmail");
-				if (oLink && sEmail) {
-					oLink.setHref("mailto:" + sEmail);
-				}
-			});
-		},
-
-		onContactMatched: function () {
-			this._focusName();
-		},
-
-		/**
-		 * sap.m.App autoFocus lands on the first focusable control. Focus Name
-		 * explicitly so the enquiry form is ready after every visit.
-		 */
-		onAfterShow: function () {
-			this._focusName();
-		},
-
-		_focusName: function () {
-			var oNameInput = this.byId("nameInput");
-			if (!oNameInput) {
-				return;
-			}
-			setTimeout(function () {
-				oNameInput.focus();
-			}, 300);
 		},
 
 		onSubmitRequest: function () {
@@ -64,10 +31,35 @@ sap.ui.define([
 			});
 		},
 
+		_setFieldState: function (oControl, bValid, sMessage) {
+			oControl.setValueState(bValid ? "None" : "Error");
+			oControl.setValueStateText(bValid ? "" : sMessage);
+		},
+
+		/**
+		 * Field keys and the mailto body stay as the existing payload.
+		 * Validation only adds value state and moves focus to the message,
+		 * then back to the first field that needs attention.
+		 */
 		_submitWithBundle: function (oResourceBundle, oFormData) {
-			if (!oFormData.name || !oFormData.workEmail || !oFormData.requirement) {
+			var oName = this.byId("nameInput");
+			var oEmail = this.byId("workEmailInput");
+			var oRequirement = this.byId("requirementInput");
+			var bName = !!oFormData.name;
+			var bEmail = !!oFormData.workEmail;
+			var bRequirement = !!oFormData.requirement;
+
+			this._setFieldState(oName, bName, oResourceBundle.getText("formNameError"));
+			this._setFieldState(oEmail, bEmail, oResourceBundle.getText("formEmailError"));
+			this._setFieldState(oRequirement, bRequirement, oResourceBundle.getText("formRequirementError"));
+
+			if (!bName || !bEmail || !bRequirement) {
+				var oFirstInvalid = !bName ? oName : (!bEmail ? oEmail : oRequirement);
 				MessageBox.warning(oResourceBundle.getText("validationErrorMessage"), {
-					title: oResourceBundle.getText("validationErrorTitle")
+					title: oResourceBundle.getText("validationErrorTitle"),
+					onClose: function () {
+						oFirstInvalid.focus();
+					}
 				});
 				return;
 			}
@@ -102,7 +94,9 @@ sap.ui.define([
 				projectType: "",
 				requirement: ""
 			});
-			this.byId("nameInput").focus();
+			this._setFieldState(this.byId("nameInput"), true, "");
+			this._setFieldState(this.byId("workEmailInput"), true, "");
+			this._setFieldState(this.byId("requirementInput"), true, "");
 		}
 	});
 });

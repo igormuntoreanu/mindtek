@@ -1,5 +1,6 @@
 module.exports = function () {
 	var mPaths = {
+		"/": "/index.html",
 		"/about": "/index.html",
 		"/about/": "/index.html",
 		"/people": "/index.html",

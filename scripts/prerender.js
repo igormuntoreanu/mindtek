@@ -16,11 +16,11 @@ const path = require("path");
 const DIST = path.join(__dirname, "..", "dist");
 const PORT = 4173;
 const ROUTES = [
-	{ path: "/", file: "index.html", text: "Hands-on SAP technical delivery" },
+	{ path: "/", file: "index.html", text: "SAP expertise, delivered directly." },
 	{ path: "/about", file: "about/index.html", text: "About MindTek" },
-	{ path: "/people", file: "people/index.html", text: "The directors you brief" },
-	{ path: "/work", file: "work/index.html", text: "Working SAP Fiori demo apps" },
-	{ path: "/contact", file: "contact/index.html", text: "Request a quote" }
+	{ path: "/people", file: "people/index.html", text: "Small team, experienced professionals" },
+	{ path: "/work", file: "work/index.html", text: "Interactive SAP UI5 demonstrations" },
+	{ path: "/contact", file: "contact/index.html", text: "Discuss your project" }
 ];
 const SHELL_PATHS = ROUTES.reduce(function (aPaths, route) {
 	return aPaths.concat([route.path, route.path.replace(/\/?$/, "/")]);

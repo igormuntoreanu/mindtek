@@ -35,8 +35,62 @@
 	border-bottom: 1px solid #d9d9d9;
 }
 
+.mindtek-shell {
+	position: relative;
+}
+
+/* Skip link stays out of view until keyboard focus. */
+.mindtek-skip-link.sapMLnk {
+	position: absolute;
+	left: 0.5rem;
+	top: 0;
+	z-index: 100;
+	transform: translateY(-150%);
+	background: var(--sapPage_Background, #fff);
+	padding: 0.5rem 0.75rem;
+	min-height: 2.75rem;
+}
+
+.mindtek-skip-link.sapMLnk:focus {
+	transform: translateY(0.25rem);
+}
+
+/* Nav links use the toolbar row as their touch height. Current page is underlined, not a second filled button. */
+.mindtek-shellbar .mindtek-nav-link.sapMLnk {
+	display: inline-flex;
+	align-items: center;
+	min-height: 2.75rem;
+	padding: 0 0.75rem;
+}
+
+.mindtek-nav-current.sapMLnk {
+	font-weight: 700;
+	text-decoration: underline;
+	text-underline-offset: 0.25rem;
+}
+
+.mindtek-nav-menu-button.sapMBtn {
+	min-width: 2.75rem;
+	min-height: 2.75rem;
+}
+
+.mindtek-nav-menu-link.sapMLnk {
+	display: flex;
+	align-items: center;
+	min-height: 2.75rem;
+	padding: 0 1rem;
+	box-sizing: border-box;
+}
+
 .mindtek-footer-nav {
 	gap: 0.5rem 1.5rem;
+}
+
+.mindtek-footer-nav .sapMLnk {
+	display: inline-flex;
+	align-items: center;
+	min-height: 2.75rem;
+	padding: 0 0.25rem;
 }
 
 /* Footer: a single hairline over generous spacing replaces the bordered panel,
@@ -47,47 +101,24 @@
 	border-top: 1px solid var(--sapList_BorderColor, #d9d9d9);
 }
 
-/* Brand marks come in different canvases (linkedin 635x540, youtube 1255x1075),
-   so fix one height and let each keep its own width: equal optical size, no
-   stretched logos. The longer selector outranks the theme's button-icon sizing. */
-.mindtek-footer .mindtek-footer-social-button .sapMBtnInner .sapMBtnIcon {
-	width: auto;
-	height: 1.5rem;
-	font-size: 1.25rem;
-	line-height: 1.5rem;
-}
-
-.mindtek-footer .mindtek-footer-social-button .sapMBtnInner {
-	border: none;
-	background: transparent;
-}
-
 .mindtek-footer-copyright {
 	margin-top: 0.75rem;
 	font-size: 0.75rem;
 	color: var(--sapContent_LabelColor, #6a6d70);
 }
 
+.mindtek-field-help {
+	color: var(--sapContent_LabelColor, #556b82);
+	font-size: 0.875rem;
+}
+
+.mindtek-work-floorplan {
+	color: var(--sapContent_LabelColor, #556b82);
+}
+
 /* A closed dialog stays in the shell and would otherwise be a second H1. */
 .sapMDialog:not(.sapMDialogOpen) {
 	display: none !important;
-}
-
-/* Phone: keep logo and nav on one row. Slightly tighter buttons so Work is not pushed into the overflow menu. */
-@media (max-width: 599px) {
-	.mindtek-shellbar .sapMBtnInner {
-		padding-left: 0.25rem;
-		padding-right: 0.25rem;
-		min-width: 0;
-	}
-
-	.mindtek-shellbar .sapMBtnContent {
-		font-size: 0.8125rem;
-	}
-
-	.mindtek-shellbar .sapMImg {
-		height: 1.75rem !important;
-	}
 }
 
 .mindtek-app {
@@ -117,17 +148,6 @@
 
 .mindtek-card-grid .sapFCardContent {
 	flex: 1 1 auto;
-}
-
-.mindtek-approach-list .sapMSLI {
-	height: auto;
-	min-height: 3rem;
-}
-
-.mindtek-approach-list .sapMSLIDescription {
-	white-space: normal;
-	overflow: visible;
-	text-overflow: clip;
 }
 
 /* Keep faces in the square avatar; Cover otherwise clips the top of the head. */

@@ -9,8 +9,12 @@
 		<content>
 			<VBox id="contactContent" class="mindtek-content">
 			<VBox id="contactHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="contactPageTitleText" text="{i18n>contactPageTitle}" level="H1" titleStyle="H1" />
-				<Text id="contactPageSubtitleText" text="{i18n>contactPageSubtitle}" class="sapUiTinyMarginTop" />
+				<Title id="contactPageTitleText" text="{i18n>contactPageTitle}" level="H1" titleStyle="{= ${layout>/phone} ? 'H2' : 'H1' }" wrapping="true" wrappingType="Normal" width="100%" class="mindtek-page-title" />
+				<Text id="contactPageSubtitleText" text="{i18n>contactPageSubtitle}" wrapping="true" class="sapUiTinyMarginTop" />
+				<HBox id="contactEmailRow" class="sapUiSmallMarginTop" wrap="Wrap" alignItems="Center">
+					<Text id="contactEmailLabelText" text="{i18n>contactEmailLabel}" wrapping="true" class="sapUiTinyMarginEnd" />
+					<Link id="contactEmailValueLink" text="{i18n>companyContactEmail}" href="{i18n>companyContactMailto}" />
+				</HBox>
 			</VBox>
 
 			<Panel id="contactFormPanel" class="sapUiResponsiveMargin" width="auto">
@@ -32,10 +36,10 @@
 					columnsM="1"
 				>
 					<Label id="nameLabel" text="{i18n>formName}" required="true" labelFor="nameInput" />
-					<Input id="nameInput" value="{form>/name}" placeholder="{i18n>formNamePlaceholder}" />
+					<Input id="nameInput" value="{form>/name}" placeholder="{i18n>formNamePlaceholder}" required="true" />
 
 					<Label id="workEmailLabel" text="{i18n>formWorkEmail}" required="true" labelFor="workEmailInput" />
-					<Input id="workEmailInput" type="Email" value="{form>/workEmail}" placeholder="{i18n>formWorkEmailPlaceholder}" />
+					<Input id="workEmailInput" type="Email" value="{form>/workEmail}" placeholder="{i18n>formWorkEmailPlaceholder}" required="true" />
 
 					<Label id="companyLabel" text="{i18n>formCompany}" labelFor="companyInput" />
 					<Input id="companyInput" value="{form>/company}" placeholder="{i18n>formCompanyPlaceholder}" />
@@ -52,20 +56,16 @@
 					</Select>
 
 					<Label id="requirementLabel" text="{i18n>formRequirement}" required="true" labelFor="requirementInput" />
-					<TextArea id="requirementInput" value="{form>/requirement}" rows="4" width="100%" placeholder="{i18n>formRequirementPlaceholder}" />
+					<TextArea id="requirementInput" value="{form>/requirement}" rows="4" growing="true" width="100%" placeholder="{i18n>formRequirementPlaceholder}" required="true" ariaDescribedBy="requirementHelp" />
+					<Text id="requirementHelp" text="{i18n>formRequirementHelp}" wrapping="true" class="mindtek-field-help" />
 				</form:SimpleForm>
 
-				<Text id="privacyNoticeText" text="{i18n>contactPrivacyLine}" class="sapUiSmallMarginTop" wrapping="true" />
+				<Text id="privacyNoticeText" text="{i18n>contactPrivacyLine}" class="sapUiSmallMargin" wrapping="true" />
 
-				<HBox id="contactEmailRow" class="sapUiTinyMarginTop" wrap="Wrap" alignItems="Center">
-					<Text id="contactEmailLabelText" text="{i18n>contactEmailLabel}" class="sapUiTinyMarginEnd" />
-					<Link id="contactEmailValueLink" text="{i18n>companyContactEmail}" />
-				</HBox>
-
-				<OverflowToolbar id="contactFormToolbar" class="sapUiMediumMarginTop">
+				<OverflowToolbar id="contactFormToolbar" class="sapUiSmallMarginBottom">
 					<ToolbarSpacer />
 					<Button id="clearFormButton" text="{i18n>formClear}" type="Transparent" press=".onClearForm" />
-					<Button id="submitFormButton" text="{i18n>formSubmit}" type="Emphasized" icon="sap-icon://email" press=".onSubmitRequest" />
+					<Button id="submitFormButton" text="{i18n>formSubmit}" type="Emphasized" press=".onSubmitRequest" />
 				</OverflowToolbar>
 			</Panel>
 

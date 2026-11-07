@@ -8,44 +8,43 @@
 		<content>
 			<VBox id="aboutContent" class="mindtek-content">
 			<VBox id="aboutHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-				<Title id="aboutPageTitleText" text="{i18n>aboutPageTitle}" level="H1" titleStyle="H1" />
-				<Text id="aboutPageSubtitleText" text="{i18n>aboutPageSubtitle}" class="sapUiTinyMarginTop" />
+				<Title id="aboutPageTitleText" text="{i18n>aboutPageTitle}" level="H1" titleStyle="{= ${layout>/phone} ? 'H2' : 'H1' }" wrapping="true" wrappingType="Normal" width="100%" class="mindtek-page-title" />
+				<Text id="aboutIntroText" text="{i18n>aboutIntro}" wrapping="true" class="sapUiSmallMarginTop" />
 			</VBox>
 
 			<Panel id="aboutTextPanel" class="sapUiResponsiveMargin" width="auto">
 				<VBox id="aboutTextContent" class="sapUiSmallMargin">
-					<Text id="companyAboutText" text="{i18n>companyAbout}" />
-					<Text id="companyOperatingModelText" text="{i18n>companyOperatingModel}" class="sapUiSmallMarginTop" />
+					<Text id="aboutValueText" text="{i18n>aboutValue}" wrapping="true" />
+					<Text id="aboutMethodText" text="{i18n>aboutMethod}" wrapping="true" class="sapUiSmallMarginTop" />
 				</VBox>
 			</Panel>
 
 			<Panel id="proofPointsPanel" headerText="{i18n>proofPointsTitle}" class="sapUiResponsiveMargin" width="auto">
-				<VBox id="proofPointsList">
-					<HBox id="proofPointRow1" class="sapUiTinyMarginBottom" alignItems="Center">
-						<core:Icon id="proofPointIcon1" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+				<VBox id="proofPointsList" class="sapUiSmallMargin">
+					<HBox id="proofPointRow1" class="sapUiTinyMarginBottom" alignItems="Start">
+						<core:Icon id="proofPointIcon1" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
 						<Text id="proofPointText1" text="{i18n>proofPoint1}" wrapping="true" />
 					</HBox>
-					<HBox id="proofPointRow2" class="sapUiTinyMarginBottom" alignItems="Center">
-						<core:Icon id="proofPointIcon2" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+					<HBox id="proofPointRow2" class="sapUiTinyMarginBottom" alignItems="Start">
+						<core:Icon id="proofPointIcon2" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
 						<Text id="proofPointText2" text="{i18n>proofPoint2}" wrapping="true" />
 					</HBox>
-					<HBox id="proofPointRow3" class="sapUiTinyMarginBottom" alignItems="Center">
-						<core:Icon id="proofPointIcon3" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+					<HBox id="proofPointRow3" class="sapUiTinyMarginBottom" alignItems="Start">
+						<core:Icon id="proofPointIcon3" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
 						<Text id="proofPointText3" text="{i18n>proofPoint3}" wrapping="true" />
 					</HBox>
-					<HBox id="proofPointRow4" class="sapUiTinyMarginBottom" alignItems="Center">
-						<core:Icon id="proofPointIcon4" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd" />
+					<HBox id="proofPointRow4" class="sapUiTinyMarginBottom" alignItems="Start">
+						<core:Icon id="proofPointIcon4" src="sap-icon://accept" color="#188918" class="sapUiSmallMarginEnd sapUiTinyMarginTop" decorative="true" />
 						<Text id="proofPointText4" text="{i18n>proofPoint4}" wrapping="true" />
 					</HBox>
 				</VBox>
 			</Panel>
 
-			<Panel id="aboutCtaPanel" class="sapUiResponsiveMargin sapUiLargeMarginTop" width="auto">
-				<VBox id="aboutCtaContent" class="sapUiMediumMargin" alignItems="Center">
-					<Text id="aboutClosingText" text="{i18n>companyClosingStatement}" textAlign="Center" />
-					<Button id="aboutCtaButton" text="{i18n>aboutCtaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
-				</VBox>
-			</Panel>
+			<VBox id="aboutCtaContent" class="sapUiResponsiveMargin sapUiLargeMarginTop" alignItems="Center">
+				<Title id="aboutCtaTitle" text="{i18n>ctaTitle}" level="H2" titleStyle="H3" wrapping="true" textAlign="Center" width="100%" />
+				<Text id="aboutClosingText" text="{i18n>companyClosingStatement}" textAlign="Center" wrapping="true" class="sapUiSmallMarginTop" />
+				<Button id="aboutCtaButton" text="{i18n>aboutCtaButton}" type="Emphasized" press=".onNavToContact" class="sapUiMediumMarginTop" />
+			</VBox>
 
 			<core:Fragment fragmentName="mindtek.view.fragment.Footer" type="XML" />
 

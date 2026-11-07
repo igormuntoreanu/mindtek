@@ -49,6 +49,10 @@ sap.ui.define([
 		 * app, stay on the current page and let the router change the view.
 		 */
 		onSeoNav: function (oEvent) {
+			// Modified clicks keep the real href so the browser can open a new tab.
+			if (oEvent.getParameter("ctrlKey") || oEvent.getParameter("metaKey")) {
+				return;
+			}
 			oEvent.preventDefault();
 			var sRoute = oEvent.getSource().data("route");
 			if (sRoute) {

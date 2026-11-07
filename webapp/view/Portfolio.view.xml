@@ -3,41 +3,41 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
 	xmlns:cssgrid="sap.ui.layout.cssgrid"
 >
 	<Page id="portfolioPage" showHeader="false" showFooter="false" enableScrolling="true">
 		<content>
 			<VBox id="portfolioContent" class="mindtek-content">
 				<VBox id="portfolioHeader" class="sapUiResponsiveMargin sapUiLargeMarginTop">
-					<Title id="portfolioPageTitle" text="{i18n>workTitle}" level="H1" titleStyle="H1" />
-					<Text id="portfolioPageSubtitle" text="{i18n>workSubtitle}" class="sapUiTinyMarginTop" />
+					<Title id="portfolioPageTitle" text="{i18n>workTitle}" level="H1" titleStyle="{= ${layout>/phone} ? 'H2' : 'H1' }" wrapping="true" wrappingType="Normal" width="100%" class="mindtek-page-title" />
+					<Text id="portfolioPageSubtitle" text="{i18n>workSubtitle}" wrapping="true" class="sapUiTinyMarginTop" />
+					<Text id="portfolioFictionalLabel" text="{i18n>portfolioFictionalData}" wrapping="true" class="sapUiSmallMarginTop" />
 				</VBox>
 
+				<!-- GenericTile subheader is one line and would clip the benefit sentences, so each demo is a card. The link is a real href that opens in a new tab. -->
 				<VBox id="portfolioTileWrap" class="sapUiResponsiveMargin">
 					<cssgrid:CSSGrid
 						id="portfolioTiles"
 						width="100%"
 						items="{portfolio>/apps}"
-						gridGap="{= ${portfolio>/phone} ? '0.5rem' : '1rem' }"
-						gridTemplateColumns="{= ${portfolio>/phone} ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(15rem, 1fr))' }">
+						gridGap="1rem"
+						gridTemplateColumns="{= ${layout>/phone} ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(18rem, 1fr))' }">
 						<cssgrid:items>
-							<GenericTile
-								id="portfolioTile"
-								header="{portfolio>title}"
-								subheader="{= ${portfolio>/phone} ? ${portfolio>floorplan} + ' · ' + ${portfolio>status} : ${portfolio>floorplan} }"
-								tooltip="{portfolio>description}"
-								ariaLabel="{portfolio>ariaLabel}"
-								width="100%"
-								mode="{= ${portfolio>/phone} ? 'LineMode' : 'ContentMode' }"
-								press=".onOpenApp">
-								<tileContent>
-									<TileContent id="portfolioTileContent" footer="{portfolio>status}">
-										<content>
-											<ImageContent id="portfolioTileIcon" src="{portfolio>icon}" />
-										</content>
-									</TileContent>
-								</tileContent>
-							</GenericTile>
+							<f:Card class="mindtek-card mindtek-work-card">
+								<f:header>
+									<card:Header title="{portfolio>title}" />
+								</f:header>
+								<f:content>
+									<VBox class="sapUiSmallMargin">
+										<Text text="{portfolio>benefit}" wrapping="true" />
+										<Text text="{portfolio>floorplan}" wrapping="true" class="mindtek-work-floorplan sapUiTinyMarginTop" />
+										<Text text="{i18n>portfolioFictionalData}" wrapping="true" class="mindtek-work-floorplan sapUiTinyMarginTop" />
+										<Link text="{i18n>portfolioOpenDemo}" href="{portfolio>url}" target="_blank" wrapping="true" class="sapUiSmallMarginTop" />
+									</VBox>
+								</f:content>
+							</f:Card>
 						</cssgrid:items>
 					</cssgrid:CSSGrid>
 				</VBox>
