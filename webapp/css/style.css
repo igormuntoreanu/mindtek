@@ -20,6 +20,7 @@
 
 .mindtek-client-logo {
 	width: 8rem;
+	max-width: 42%;
 	height: 4rem;
 	object-fit: contain;
 }

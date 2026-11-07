@@ -14,7 +14,6 @@
 				<Title id="heroTitle" text="{i18n>companyHeroTitle}" level="H1" titleStyle="{= ${layout>/phone} ? 'H2' : 'H1' }" wrapping="true" wrappingType="Normal" textAlign="Center" width="100%" class="mindtek-page-title" />
 				<Text id="heroText" text="{i18n>companyHeroText}" textAlign="Center" wrapping="true" width="100%" class="sapUiSmallMarginTop" />
 				<HBox id="heroActions" class="sapUiMediumMarginTop" justifyContent="Center" wrap="Wrap" alignItems="Center">
-					<Button id="heroDiscussButton" text="{i18n>heroDiscussButton}" type="Emphasized" press=".onNavToContact" class="sapUiTinyMarginEnd sapUiTinyMarginBottom" />
 					<Button id="heroExploreButton" text="{i18n>heroExploreButton}" type="Default" press=".onNavToWork" class="sapUiTinyMarginBottom" />
 				</HBox>
 			</VBox>
@@ -183,6 +182,12 @@
 				</List>
 			</VBox>
 
+			<VBox id="peopleSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
+				<Title id="peopleTitle" text="{i18n>peopleTeaserTitle}" level="H2" titleStyle="H3" wrapping="true" width="100%" />
+				<Text id="peopleSubtitle" text="{i18n>peopleTeaserText}" wrapping="true" class="sapUiTinyMarginTop" />
+				<core:Fragment fragmentName="mindtek.view.fragment.PeopleCards" type="XML" />
+			</VBox>
+
 			<VBox id="experienceSection" class="sapUiResponsiveMargin sapUiLargeMarginTop">
 				<Title id="experienceTitle" text="{i18n>experienceTitle}" level="H2" titleStyle="H3" wrapping="true" width="100%" />
 				<Text id="experienceDisclaimer" text="{i18n>experienceDisclaimer}" wrapping="true" class="sapUiTinyMarginTop" />
@@ -195,34 +200,27 @@
 					<Image id="logoDeutscheTelekom" src="assets/logos/deutsche-telekom.jpg" alt="Deutsche Telekom" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
 					<Image id="logoBayer" src="assets/logos/bayer.jpg" alt="Bayer" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
 					<Image id="logoSantander" src="assets/logos/santander.jpg" alt="Santander" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
-					<Image id="logoAccenture" src="assets/logos/accenture.jpg" alt="Accenture" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoJohnDeere" src="assets/logos/john-deere.jpg" alt="John Deere" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoTakeda" src="assets/logos/takeda.jpg" alt="Takeda" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoBacardi" src="assets/logos/bacardi.jpg" alt="Bacardi" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoCapgemini" src="assets/logos/capgemini.jpg" alt="Capgemini" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoCanadaLife" src="assets/logos/canada-life.jpg" alt="Canada Life" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoNatura" src="assets/logos/natura.jpg" alt="Natura" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoBrf" src="assets/logos/brf.jpg" alt="BRF" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoBunge" src="assets/logos/bunge.jpg" alt="Bunge" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoVoith" src="assets/logos/voith.jpg" alt="Voith" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoErm" src="assets/logos/erm.jpg" alt="ERM" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoCloudreach" src="assets/logos/cloudreach.jpg" alt="Cloudreach" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoGrunenthal" src="assets/logos/grunenthal.jpg" alt="Grünenthal" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoProvinzial" src="assets/logos/provinzial.jpg" alt="Provinzial" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoInfoglobo" src="assets/logos/infoglobo.jpg" alt="Infoglobo" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoCogna" src="assets/logos/cogna.jpg" alt="Cogna" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoWestSussexCountyCouncil" src="assets/logos/west-sussex-county-council.jpg" alt="West Sussex County Council" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoHochschulrektorenkonferenz" src="assets/logos/hochschulrektorenkonferenz.jpg" alt="Hochschulrektorenkonferenz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoAlleasy" src="assets/logos/alleasy.jpg" alt="Alleasy" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
-					<Image id="logoSow" src="assets/logos/sow.jpg" alt="SOW" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" visible="{experience>/showAll}" />
+					<Image id="logoAccenture" src="assets/logos/accenture.jpg" alt="Accenture" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoJohnDeere" src="assets/logos/john-deere.jpg" alt="John Deere" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoTakeda" src="assets/logos/takeda.jpg" alt="Takeda" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoBacardi" src="assets/logos/bacardi.jpg" alt="Bacardi" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoCapgemini" src="assets/logos/capgemini.jpg" alt="Capgemini" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoCanadaLife" src="assets/logos/canada-life.jpg" alt="Canada Life" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoNatura" src="assets/logos/natura.jpg" alt="Natura" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoBrf" src="assets/logos/brf.jpg" alt="BRF" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoBunge" src="assets/logos/bunge.jpg" alt="Bunge" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoVoith" src="assets/logos/voith.jpg" alt="Voith" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoErm" src="assets/logos/erm.jpg" alt="ERM" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoCloudreach" src="assets/logos/cloudreach.jpg" alt="Cloudreach" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoGrunenthal" src="assets/logos/grunenthal.jpg" alt="Grünenthal" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoProvinzial" src="assets/logos/provinzial.jpg" alt="Provinzial" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoInfoglobo" src="assets/logos/infoglobo.jpg" alt="Infoglobo" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoCogna" src="assets/logos/cogna.jpg" alt="Cogna" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoWestSussexCountyCouncil" src="assets/logos/west-sussex-county-council.jpg" alt="West Sussex County Council" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoHochschulrektorenkonferenz" src="assets/logos/hochschulrektorenkonferenz.jpg" alt="Hochschulrektorenkonferenz" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoAlleasy" src="assets/logos/alleasy.jpg" alt="Alleasy" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
+					<Image id="logoSow" src="assets/logos/sow.jpg" alt="SOW" class="mindtek-client-logo sapUiTinyMargin" densityAware="false" />
 				</HBox>
-				<Button id="experienceToggle" text="{i18n>experienceShowMore}" type="Default" press=".onToggleExperience" class="sapUiSmallMarginTop" />
-			</VBox>
-
-			<VBox id="peopleSection" class="sapUiResponsiveMargin sapUiLargeMarginTop" alignItems="Center">
-				<Title id="peopleTitle" text="{i18n>peopleTeaserTitle}" level="H2" titleStyle="H3" wrapping="true" textAlign="Center" width="100%" />
-				<Text id="peopleSubtitle" text="{i18n>peopleTeaserText}" wrapping="true" textAlign="Center" class="sapUiTinyMarginTop" />
-				<Button id="peopleTeaserButton" text="{i18n>peopleTeaserButton}" type="Default" press=".onNavToPeople" class="sapUiSmallMarginTop" />
 			</VBox>
 
 			<VBox id="workTeaserSection" class="sapUiResponsiveMargin sapUiLargeMarginTop" alignItems="Center">

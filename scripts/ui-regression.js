@@ -307,29 +307,55 @@ async function main() {
 	record("work copy", work.fictional && work.benefit && work.floorplan, "");
 	record("no placeholder socials", !work.social, "");
 
-	await openRoute(page, "/");
-	var home = await page.evaluate(function () {
-		var logos = Array.prototype.filter.call(document.querySelectorAll(".mindtek-client-logo"), function (img) {
-			return img.getBoundingClientRect().height > 0;
+	var homeWidths = [360, 390, 430, 1280];
+	for (var h = 0; h < homeWidths.length; h++) {
+		await page.setViewport({ width: homeWidths[h], height: 844, deviceScaleFactor: homeWidths[h] < 600 ? 2 : 1 });
+		await openRoute(page, "/");
+		var home = await page.evaluate(function () {
+		var homeRoot = document.querySelector("[id$='homeContent']") || document.body;
+		var logos = Array.prototype.filter.call(homeRoot.querySelectorAll(".mindtek-client-logo"), function (img) {
+			var rect = img.getBoundingClientRect();
+			return rect.height > 0 && rect.width > 0 && rect.right <= window.innerWidth + 1;
 		});
-		var body = document.body.innerText;
+		var body = homeRoot.innerText;
+		var people = homeRoot.querySelector("[id$='peopleSection']");
+		var experience = homeRoot.querySelector("[id$='experienceSection']");
+		var services = homeRoot.querySelector("[id$='servicesSection']");
+		var heroButtons = Array.prototype.map.call(homeRoot.querySelectorAll("[id$='homeHero'] button"), function (button) {
+			return button.innerText.replace(/\s+/g, " ").trim();
+		});
+		var headerCta = document.querySelector(".mindtek-header-cta");
 		return {
 			logos: logos.length,
+			logoNodes: homeRoot.querySelectorAll(".mindtek-client-logo").length,
 			order: ["Benefits", "What we deliver", "Ways to engage", "How we work", "Experience across organisations"].every(function (label) {
 				return body.indexOf(label) !== -1;
 			}),
+			peopleBeforeLogos: !!(people && experience && services &&
+				services.offsetTop < people.offsetTop && people.offsetTop < experience.offsetTop),
 			clientsWord: /Our clients|client logos/i.test(body),
-			disclaimer: body.indexOf("do not indicate client relationships with MindTek") !== -1
+			disclaimer: body.indexOf("do not indicate client relationships with MindTek") !== -1,
+			toggle: body.indexOf("Show more organisations") === -1 && body.indexOf("Show fewer") === -1,
+			heroButtons: heroButtons,
+			headerCta: headerCta ? headerCta.innerText.replace(/\s+/g, " ").trim() : "",
+			igor: body.indexOf("Igor Muntoreanu") !== -1 && body.indexOf("Founder and Principal Developer") !== -1,
+			neska: body.indexOf("Neska Braga") !== -1 && body.indexOf("Director and Principal Project Manager") !== -1,
+			photos: Array.prototype.filter.call(people ? people.querySelectorAll(".sapFAvatarImageHolder") : [], function (holder) {
+				var image = getComputedStyle(holder).backgroundImage || "";
+				return image.indexOf("mindtek-igor") !== -1 || image.indexOf("mindtek-neska") !== -1;
+			}).length
 		};
 	});
-	record("home eight logos", home.logos === 8, "visible=" + home.logos);
-	record("home section order copy", home.order && home.disclaimer && !home.clientsWord, "");
-	await page.click("[id$='experienceToggle']");
-	await new Promise(function (resolve) { setTimeout(resolve, 300); });
-	var moreLogos = await page.$$eval(".mindtek-client-logo", function (imgs) {
-		return imgs.filter(function (img) { return img.getBoundingClientRect().height > 0; }).length;
-	});
-	record("home logos expand", moreLogos > 8, "visible=" + moreLogos);
+		var widthLabel = String(homeWidths[h]);
+		record(widthLabel + " home all logos visible", home.logos === 28 && home.logoNodes === 28, "visible=" + home.logos + " nodes=" + home.logoNodes);
+		record(widthLabel + " home section order", home.order && home.disclaimer && home.toggle && home.peopleBeforeLogos && !home.clientsWord, JSON.stringify({
+			peopleBeforeLogos: home.peopleBeforeLogos,
+			toggle: home.toggle
+		}));
+		record(widthLabel + " home hero has no contact CTA", home.heroButtons.length === 1 && home.heroButtons[0] === "Explore our work" && home.headerCta === "Discuss your project",
+			"hero=" + home.heroButtons.join(",") + " header=" + home.headerCta);
+		record(widthLabel + " home shows both people", home.igor && home.neska && home.photos === 2, "photos=" + home.photos);
+	}
 
 	await openRoute(page, "/people");
 	var people = await page.evaluate(function () {
